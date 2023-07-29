@@ -23,14 +23,6 @@ async function getData( id ) {
 }
 
 
-export async function generateMetadata( ctx ) {
-  const question = await getData(ctx.params.id)
- return {
-   title: question.subject,
-   description: question.subject
- }
-}
-
 const Quiz = (ctx) => {  
   const [easyMode, setEasyMode] = useBoolean()
   const [value, setValue] = useState('')

@@ -18,14 +18,6 @@ async function getData( id ) {
 }
 
 
-export async function generateMetadata({ params }) {
-  const question = await getData(params.id)
- return {
-   title: question.subject,
-   description: question.subject
- }
-}
-
 
 const ExamSheet = async ({ params }) => {  
  const data = await getData(params.id)
