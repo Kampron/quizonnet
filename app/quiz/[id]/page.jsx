@@ -7,7 +7,6 @@ import Timer from '@/components/Timer20'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { toast } from 'react-hot-toast'
 import { MathComponent } from 'mathjax-react'
 
 async function getData( id ) {
@@ -45,17 +44,16 @@ const Quiz = (ctx) => {
     getQuestions()
   }, [])
 
-  // const toastLoading = toast('Please sign in first', {
-  //   icon: '🔐'
-  // });
+  const toastLoading = toast('Please sign in first', {
+    icon: '🔐'
+  });
   const router = useRouter()
-  const { status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      router.push('/login')
-      // toastLoading
-    }
-  })
+
+  const { status } = useSession()
+  if(status === 'unauthenticated') {
+    router.push('/login')
+    toastLoading
+  }
 
   // if (status === 'loading') {
   //   return toastLoading

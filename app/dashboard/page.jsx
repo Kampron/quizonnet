@@ -6,13 +6,16 @@ import React from 'react'
 const Dashboard = () => {
 
   const router = useRouter()
+
+  const toastLoading = toast('Please sign in first', {
+    icon: '🔐'
+  });
   
-  const { status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      router.push('/login')
-    }
-  })
+  const { status } = useSession()
+  if(status === 'unauthenticated') {
+    router.push('/login')
+    toastLoading
+  }
   return (
     <div>Dashboard</div>
   )
