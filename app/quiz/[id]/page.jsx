@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { MathComponent } from 'mathjax-react'
+import { toast } from 'react-hot-toast'
 
 async function getData( id ) {
   const res = await fetch(`http://localhost:3000/api/questions/${id}`, {
