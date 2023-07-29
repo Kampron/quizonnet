@@ -44,17 +44,17 @@ const Quiz = (ctx) => {
     getQuestions()
   }, [])
 
-  const toastLoading = toast('Please sign in first', {
-    icon: '🔐'
-  });
+  // const toastLoading = toast('Please sign in first', {
+  //   icon: '🔐'
+  // });
 
-  const router = useRouter()
-  const { status } = useSession()
-  
-  if(status === "unauthenticated") {
-    router.push('/login')
-    toastLoading
-  }
+  // const router = useRouter()
+  // const { status } = useSession()
+
+  // if(status === "unauthenticated") {
+  //   router.push('/login')
+  //   toastLoading
+  // }
 
   // if (status === 'loading') {
   //   return toastLoading
