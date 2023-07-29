@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import { toast } from 'react-hot-toast';
+
 
 const Dashboard = () => {
   const toastLoading = toast('Please sign in first', {
@@ -12,7 +12,6 @@ const Dashboard = () => {
     required: true,
     onUnauthenticated() {
       router.push('/login')
-      toastLoading
     }
   })
   return (
