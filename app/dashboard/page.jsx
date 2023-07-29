@@ -4,10 +4,9 @@ import React from 'react'
 
 
 const Dashboard = () => {
-  const toastLoading = toast('Please sign in first', {
-    icon: '🔐'
-  });
+
   const router = useRouter()
+  
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
