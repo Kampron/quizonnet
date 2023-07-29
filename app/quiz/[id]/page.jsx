@@ -22,7 +22,6 @@ async function getData( id ) {
   return res.json()
 }
 
-
 const Quiz = (ctx) => {  
   const [easyMode, setEasyMode] = useBoolean()
   const [value, setValue] = useState('')
