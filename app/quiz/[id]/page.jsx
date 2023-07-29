@@ -47,10 +47,11 @@ const Quiz = (ctx) => {
   const toastLoading = toast('Please sign in first', {
     icon: '🔐'
   });
-  const router = useRouter()
 
+  const router = useRouter()
   const { status } = useSession()
-  if(status === 'unauthenticated') {
+  
+  if(status === "unauthenticated") {
     router.push('/login')
     toastLoading
   }

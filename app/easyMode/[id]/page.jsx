@@ -43,7 +43,7 @@ const EasyMode = (ctx) => {
 
     (async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/questions/${ctx.params.id}`)
+        const res = await fetch(`/api/questions/${ctx.params.id}`)
 
         if (!res.ok) {
           return notFound()
