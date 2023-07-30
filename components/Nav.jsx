@@ -47,7 +47,7 @@ const Nav = () => {
     signOut()
     router.push('/')
   }
-  const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 1})
+  const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 30})
 
   const router = useRouter()
 
