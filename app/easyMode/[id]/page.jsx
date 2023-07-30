@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import { Box, Button, Flex, Grid, Heading, HStack, ListItem, Radio, RadioGroup, Spacer, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, UnorderedList, VStack} from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Heading, HStack, Icon, ListItem, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Radio, RadioGroup, Show, Spacer, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, UnorderedList, VStack} from "@chakra-ui/react";
 import Timer from '@/components/Timer20';
 import { useSelector, useDispatch } from "react-redux";
 import * as Action from '@/redux/question_reducer'
@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation'
 import Link from "next/link";
 import { MathComponent } from "mathjax-react";
 import { CldImage } from "next-cloudinary";
-
+import { MdOutlineTipsAndUpdates } from  'react-icons/md'
 
 const EasyMode = (ctx) => {
 
@@ -184,6 +184,13 @@ const EasyMode = (ctx) => {
 
   const [results, setResults] = useState([])
 
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push('/login')
+      // toastLoading
+    }
+  })
 
   return (
     <Box
@@ -236,10 +243,10 @@ const EasyMode = (ctx) => {
                   </Flex>
                 </Box>
                 <HStack mt={10}>
-                  <Button onClick={restartQuiz}>Restart</Button>
-                  <Button onClick={quitBtn}>Quit</Button>
-                  <Button>
-                    <Link href={'#'} state={data}>Review Answers</Link>
+                  <Button size={['xs', 'sm']} onClick={restartQuiz}>Restart</Button>
+                  <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
+                  <Button size={['xs', 'sm']}>
+                    <Link href={'#'}>Review Answers</Link>
                   </Button>
                 </HStack>
               </Box>
@@ -299,6 +306,13 @@ const EasyMode = (ctx) => {
                             <Box className='flex justify-center'>
                               <MathComponent tex={String.raw`${question.mathsQuestion}`} />
                             </Box>
+                            <Box>
+                              {data.questions[currentQn].mathsQuestion1 && (
+                                <Box className='flex justify-center'>
+                                  <MathComponent tex={String.raw`${data.questions[currentQn].mathsQuestion1}`} />
+                                </Box>
+                              )}
+                            </Box>
                             <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
                               {question.sub3}
                             </Text>
@@ -345,7 +359,7 @@ const EasyMode = (ctx) => {
                         {question.optionMathsA ? (
                           <MathComponent tex={String.raw`𝐀. ${question?.optionMathsA}`} />
                         ) :(
-                          <Text className='font-quicksand' fontWeight='medium' fontSize='medium' >𝐀.   {question?.optionA}</Text>
+                          <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐀.   {question?.optionA}</Text>
                         )}
                     </Radio>
                     <Radio 
@@ -356,7 +370,7 @@ const EasyMode = (ctx) => {
                       {question.optionMathsB ? (
                         <MathComponent tex={String.raw`𝐁. ${question?.optionMathsB}`} />
                         ) : (
-                        <Text className='font-quicksand' fontWeight='medium' fontSize='medium' >𝐁.   {question?.optionB}</Text>
+                        <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐁.   {question?.optionB}</Text>
                       )}
                     </Radio>
                     <Radio 
@@ -367,7 +381,7 @@ const EasyMode = (ctx) => {
                       {question.optionMathsC ? (
                         <MathComponent tex={String.raw`𝐂. ${question?.optionMathsC}`} />
                         ) : (
-                        <Text className='font-quicksand' fontWeight='medium' fontSize='medium' >𝐂.   {question?.optionC}</Text>
+                        <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐂.   {question?.optionC}</Text>
                       )}
                     </Radio>
                     <Radio 
@@ -378,7 +392,7 @@ const EasyMode = (ctx) => {
                       {question.optionMathsD ? (
                         <MathComponent tex={String.raw`𝐃. ${question?.optionMathsD}`} />
                         ) : (
-                        <Text className='font-quicksand' fontWeight='medium' fontSize='medium' >𝐃.   {question?.optionD}</Text>
+                        <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐃.   {question?.optionD}</Text>
                       )}
                     </Radio>
                   </Grid>
@@ -395,8 +409,21 @@ const EasyMode = (ctx) => {
               </Box>
               <Box>
                 <HStack mt={'10'} spacing={50}>
-                  <Button onClick={quitBtn}>Quit</Button>
-                  <Button><Link href={`/quiz/${data._id}`}>Back</Link></Button>
+                  <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
+                  <Button size={['xs', 'sm']}><Link href={`/quiz/${data._id}`}>Back</Link></Button>
+                  <Show below="sm" >
+                    <Popover>
+                      <PopoverTrigger>
+                          <Icon as={MdOutlineTipsAndUpdates} w={8} h={8} color='pink.700' />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        <PopoverHeader bg={'pink.300'} >Tooltip!</PopoverHeader>
+                        <PopoverBody><Text>For better view of diagrams, zoom in or rotate screen to landscape</Text></PopoverBody>
+                      </PopoverContent>
+                    </Popover>
+                 </Show>
                 </HStack>
               </Box>
             </>

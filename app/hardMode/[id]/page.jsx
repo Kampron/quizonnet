@@ -1,13 +1,14 @@
 'use client'
 
 import Timer from '@/components/Timer20'
-import { Box, Button, Flex, Grid, HStack, Heading, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, HStack, Heading, Icon, ListItem, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Show, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react'
 import { CldImage, CldOgImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { notFound, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { MathComponent } from "mathjax-react";
 import { useSession } from 'next-auth/react'
+import { MdOutlineTipsAndUpdates } from  'react-icons/md'
 
 const HardMode = (ctx) => {
 
@@ -260,6 +261,13 @@ const HardMode = (ctx) => {
                           </Text>
                           <Box className='flex justify-center'>
                             <MathComponent tex={String.raw`${data.questions[currentQn].mathsQuestion}`} />
+                          </Box>
+                          <Box>
+                            {data.questions[currentQn].mathsQuestion1 && (
+                              <Box className='flex justify-center'>
+                                <MathComponent tex={String.raw`${data.questions[currentQn].mathsQuestion1}`} />
+                              </Box>
+                            )}
                           </Box>
                           <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
                               {data.questions[currentQn].sub3}
@@ -514,8 +522,21 @@ const HardMode = (ctx) => {
               </Box>
               <Box>
                 <HStack mt={'10'} spacing={50}>
-                  <Button onClick={quitBtn}>Quit</Button>
-                  <Button><Link href={`/quiz/${data._id}`}>Back</Link></Button>
+                  <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
+                  <Button size={['xs', 'sm']}><Link href={`/quiz/${data._id}`}>Back</Link></Button>
+                  <Show below="sm" >
+                    <Popover>
+                      <PopoverTrigger>
+                          <Icon as={MdOutlineTipsAndUpdates} w={6} h={6} color='pink.700' />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        <PopoverHeader bg={'blue.200'} >Tooltip!</PopoverHeader>
+                        <PopoverBody><Text>For better view of diagrams, zoom in or rotate screen to landscape</Text></PopoverBody>
+                      </PopoverContent>
+                    </Popover>
+                 </Show>
                 </HStack>
               </Box>
             </>

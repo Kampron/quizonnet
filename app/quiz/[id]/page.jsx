@@ -48,17 +48,14 @@ const Quiz = (ctx) => {
   //   icon: '🔐'
   // });
 
-  // const router = useRouter()
-  // const { status } = useSession()
+  const router = useRouter()
+  const { status } = useSession()
 
-  // if(status === "unauthenticated") {
-  //   router.push('/login')
-  //   toastLoading
-  // }
+  if(status === "unauthenticated") {
+    router.push('/login')
+  }
 
-  // if (status === 'loading') {
-  //   return toastLoading
-  // }
+  
   return (
     <Box
       color={'gray.900'}
@@ -75,7 +72,7 @@ const Quiz = (ctx) => {
           <Button size={'xs'} onClick={setEasyMode.toggle}>
             Easy Mode
           </Button>
-          <Text fontSize={'xs'}>{easyMode ? "Yes" : "No" }</Text>
+          <Text fontSize={'xs'}>{easyMode ? "On" : "Off" }</Text>
         </HStack>                 
       </Box>
       {easyMode? (
@@ -298,7 +295,7 @@ const Quiz = (ctx) => {
                   )}
                 </>
               </Grid>
-              <Button mt={10}>
+              <Button size={['xs', 'sm']} mt={10}>
                 <Link href={`/hardMode/${data._id}`}>Start Quiz</Link>
               </Button>
               </Box>

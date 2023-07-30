@@ -4,9 +4,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import useIdle from '@/hooks/useIdleTimer';
+
 
 const links = [
   {
@@ -41,13 +43,15 @@ const links = [
 const Nav = () => {
   const { data: session } = useSession()
   const [toggleDropdown, setToggleDropdown] = useState(false)
+  const handleSignOut = () => {
+    signOut()
+    router.push('/')
+  }
+  const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 1})
 
   const router = useRouter()
 
-  const handleSignOut = () => {
-    router.push('/')
-    signOut()
-  }
+  
 
   return (
     <nav className='flex justify-between  items-center w-full mt-5 mb-16'>
@@ -70,7 +74,7 @@ const Nav = () => {
               {link.title}
             </Link>
           ))}
-          {session?.user ? (
+          {session?.user && !isIdle ? (
             <div className="flex gap-3 md:gap-5">
               <button type="button" onClick={handleSignOut} className="black_btn">
                 <Link href="/">
@@ -78,7 +82,7 @@ const Nav = () => {
                 </Link>
               </button>
 
-              <Link href='/profile'>
+              <Link href={`/dashboard/${session.user.name}`}>
                 {session?.user.image ? (
                   <Image 
                     src={session?.user.image}
@@ -112,7 +116,7 @@ const Nav = () => {
       {/* { Mobile Navigation } */}
 
       <div className="sm:hidden flex relative">
-        {session?.user ? (
+        {session?.user && !isIdle ? (
           <div className="flex">
             {session?.user.image ? (
               <Image 
@@ -137,21 +141,42 @@ const Nav = () => {
               {toggleDropdown && (
                 <div className="dropdown">
                   <Link
-                    href="/profile"
+                    href="/about"
                     className="dropdown_link"
                     onClick={() => setToggleDropdown(false)}
                   >
-                    Profile
+                    About
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="dropdown_link"
+                    onClick={() => setToggleDropdown(false)}
+                  >
+                    Contact
                   </Link>
                   <button
                     type="button"
-                    onClick={() => {
-                      setToggleDropdown(false)
-                      handleSignOut
-                    }}
-                    className="mt-5 w-full black_btn"
+                    className=" w-full outline_btn"
                   >
-                    Sign Out
+                    <Link
+                      href={`/dashboard/${session.user.name}`}
+                      className="dropdown_link"
+                      onClick={() => setToggleDropdown(false)}
+                    >
+                      Dasboard
+                    </Link>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleSignOut}
+                    className=" w-full black_btn"
+                  >
+                    <Link 
+                      href='/'
+                      onClick={()=> setToggleDropdown(false)}
+                    >
+                      Sign Out
+                    </Link>
                   </button>
                 </div>
               )}
