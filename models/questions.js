@@ -22,6 +22,9 @@ const questionsSchema = new Schema({
   questions: {
     type: Array,
     required: true
+  },
+  sheet: {
+    type: Array
   }
 }, {timestamps: true} )
 

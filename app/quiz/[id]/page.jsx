@@ -83,7 +83,6 @@ const Quiz = (ctx) => {
               <Text>OBJECTIVE TEST</Text>
               <Text>{data.type} {data.month} {data.year}</Text>
               <Heading size={'md'} align={'center'}>{data.questions[0].part}</Heading>
-              <Heading size={'md'} align={'center'}>{data.questions[0].label}</Heading>
             </VStack>
             <Flex alignItems={'center'}>
               <Text>1 of {data.questions.length}</Text>

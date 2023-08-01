@@ -13,6 +13,7 @@ import Link from "next/link";
 import { MathComponent } from "mathjax-react";
 import { CldImage } from "next-cloudinary";
 import { MdOutlineTipsAndUpdates } from  'react-icons/md'
+import { useSession } from "next-auth/react";
 
 const EasyMode = (ctx) => {
 
