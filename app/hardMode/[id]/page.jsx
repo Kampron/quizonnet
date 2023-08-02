@@ -296,7 +296,7 @@ const HardMode = (ctx) => {
                         <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
                             {data.questions[currentQn].sub5}
                         </Text>
-                        <Text fontWeight={'semibold'} size={'s'} mb={'5'}>
+                        <Text className='flex justify-start' fontWeight={'semibold'} size={'s'} mb={'5'}>
                           {data.questions[currentQn].question}
                         </Text>
                       </>

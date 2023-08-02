@@ -341,7 +341,7 @@ const EasyMode = (ctx) => {
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub5}
                             </Text>
-                            <Text fontWeight={'semibold'}  fontSize={['xs', 'sm']} mb={'2'}>
+                            <Text className="flex justify-start" fontWeight={'semibold'} fontSize={['xs', 'sm']} mb={'2'}>
                               {question.question}
                             </Text>
                           </Box>
