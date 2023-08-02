@@ -96,7 +96,7 @@ const ExamSheet = (ctx) => {
                               {qtn.question}
                             </Text>
                           </HStack>
-                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} justifyItems={'start'} justifyContent={'flex-start'}>
+                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} justifyItems={'start'}>
                             <>
                               {qtn.optionimgA ? (
                                 <>
@@ -106,19 +106,16 @@ const ExamSheet = (ctx) => {
                                   {qtn.optionMathsA ? (
                                     <></>
                                   ) : (
-                                    <>
-                                      <Box>
-                                        <Text 
-                                          className='font-quicksand'  
-                                          noOfLines={[3,2,1]}
-                                          fontWeight='semibold' 
-                                          fontSize={['x-small', 'sm']}
-                                        >
-                                         𝐀. {qtn.optionA}
-                                        </Text>
-                                      </Box>
-                                        
-                                    </>
+                                    <Box>
+                                      <Text 
+                                        className='font-quicksand'  
+                                        noOfLines={[3,2,1]}
+                                        fontWeight='semibold' 
+                                        fontSize={['x-small', 'sm']}
+                                      >
+                                        𝐀. {qtn.optionA}
+                                      </Text>
+                                    </Box>    
                                   )}
                                 </>
                               )}
