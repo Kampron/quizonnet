@@ -106,9 +106,9 @@ const ExamSheet = (ctx) => {
                                   {qtn.optionMathsA ? (
                                     <></>
                                   ) : (
-                                    <Box>
+                                    <Box className='flex justify-start'>
                                       <Text 
-                                        className='font-quicksand flex justify-start'  
+                                        className='font-quicksand'  
                                         noOfLines={[3,2,1]}
                                         fontWeight='semibold' 
                                         fontSize={['x-small', 'sm']}
@@ -129,16 +129,15 @@ const ExamSheet = (ctx) => {
                                   {qtn.optionMathsB ? (
                                     <></>
                                   ) : (
-                                    <Box>
-                                      <Text 
-                                        className='font-quicksand'  
-                                        noOfLines={[3,2,1]}
-                                        fontWeight='semibold' 
-                                        fontSize={['x-small', 'sm']}
-                                      >
-                                        𝐁. {qtn.optionB}
-                                      </Text>
-                                    </Box>
+                                    
+                                    <Text 
+                                      className='font-quicksand'  
+                                      fontWeight='semibold' 
+                                      fontSize={['x-small', 'sm']}
+                                    >
+                                      𝐁. {qtn.optionB}
+                                    </Text>
+                                    
                                   )}
                                 </>
                               )}
