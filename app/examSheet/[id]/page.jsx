@@ -78,7 +78,7 @@ const ExamSheet = (ctx) => {
                           <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
                               {qtn.sub2}
                           </Text>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'}fontSize={['xs', 'sm']} mb={'3'}>
+                          <Text align={'center'} fontWeight={'semibold'} size={'s'}fontSize={['x-small', 'sm']} mb={'3'}>
                               {qtn.sub3}
                           </Text>
                           <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
@@ -96,7 +96,7 @@ const ExamSheet = (ctx) => {
                               {qtn.question}
                             </Text>
                           </HStack>
-                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} justifyItems={'start'}>
+                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} justifyItems={'flex-start'} >
                             <>
                               {qtn.optionimgA ? (
                                 <>
@@ -129,19 +129,16 @@ const ExamSheet = (ctx) => {
                                   {qtn.optionMathsB ? (
                                     <></>
                                   ) : (
-                                    <>
-                                      <Box>
-                                        <Text 
-                                          className='font-quicksand'  
-                                          noOfLines={[3,2,1]}
-                                          fontWeight='semibold' 
-                                          fontSize={['x-small', 'sm']}
-                                        >
-                                         𝐁. {qtn.optionB}
-                                        </Text>
-                                      </Box>
-                                        
-                                    </>
+                                    <Box>
+                                      <Text 
+                                        className='font-quicksand'  
+                                        noOfLines={[3,2,1]}
+                                        fontWeight='semibold' 
+                                        fontSize={['x-small', 'sm']}
+                                      >
+                                        𝐁. {qtn.optionB}
+                                      </Text>
+                                    </Box>
                                   )}
                                 </>
                               )}
@@ -155,19 +152,16 @@ const ExamSheet = (ctx) => {
                                   {qtn.optionMathsC ? (
                                     <></>
                                   ) : (
-                                    <>
-                                      <Box>
-                                        <Text 
-                                          className='font-quicksand'  
-                                          noOfLines={[3,2,1]}
-                                          fontWeight='semibold' 
-                                          fontSize={['x-small', 'sm']}
-                                        >
-                                         𝐂. {qtn.optionC}
-                                        </Text>
-                                      </Box>
-                                        
-                                    </>
+                                    <Box>
+                                      <Text 
+                                        className='font-quicksand'  
+                                        noOfLines={[3,2,1]}
+                                        fontWeight='semibold' 
+                                        fontSize={['x-small', 'sm']}
+                                      >
+                                        𝐂. {qtn.optionC}
+                                      </Text>
+                                    </Box>
                                   )}
                                 </>
                               )}
@@ -181,26 +175,20 @@ const ExamSheet = (ctx) => {
                                   {qtn.optionMathsD ? (
                                     <></>
                                   ) : (
-                                    <>
-                                      <Box>
-                                        <Text 
-                                          className='font-quicksand'  
-                                          noOfLines={[3,2,1]}
-                                          fontWeight='semibold' 
-                                          fontSize={['x-small', 'sm']}
-                                        >
-                                         𝐃. {qtn.optionD}
-                                        </Text>
-                                      </Box>
-                                        
-                                    </>
+                                    <Box>
+                                      <Text 
+                                        className='font-quicksand'  
+                                        noOfLines={[3,2,1]}
+                                        fontWeight='semibold' 
+                                        fontSize={['x-small', 'sm']}
+                                      >
+                                        𝐃. {qtn.optionD}
+                                      </Text>
+                                    </Box>
                                   )}
                                 </>
                               )}
                             </>
-                            
-
-
                           </Grid>
                         </>
                       )}
