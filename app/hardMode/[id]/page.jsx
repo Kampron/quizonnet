@@ -226,7 +226,7 @@ const HardMode = (ctx) => {
                 <Text align={'center'} m={5}>{data.questions[currentQn].instructions}</Text>
               </Box>
               <Box  fontSize={['xs', 'sm']}>
-                  <Box align='center' m={3}>
+                  <Box align='center'>
                     {data.questions[currentQn].img ? (
                       <>
                         <Text fontWeight={'semibold'}size={'s'} mb={'2'}>

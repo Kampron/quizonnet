@@ -271,7 +271,7 @@ const EasyMode = (ctx) => {
                 <Text align={'center'}  fontSize={['xs', 'sm']} m={5}>{question?.instructions}</Text>
               </Box>
               <Box>
-                  <Box align='center' m={3}>
+                  <Box align='center'>
                     {question.img ? (
                       <>
                         <Text fontWeight={'semibold'}size={'s'}  fontSize={['xs', 'sm']} mb={'2'}>
