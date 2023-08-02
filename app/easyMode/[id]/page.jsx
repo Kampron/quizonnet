@@ -256,41 +256,41 @@ const EasyMode = (ctx) => {
             <>
               <Box>
                 <VStack>
-                  <Heading align={'center'}>{data.subject.toUpperCase()}</Heading>
-                  <Text>OBJECTIVE TEST</Text>
-                  <Text>{data.type} {data.month} {data.year} </Text>
-                  <Heading size={'md'} align={'center'}>{question?.part}</Heading>
-                  <Heading size={'md'} align={'center'}>{question?.label}</Heading>
+                  <Heading align={'center'}  fontSize={['xs', 'sm']}>{data.subject.toUpperCase()}</Heading>
+                  <Text  fontSize={['xs', 'sm']}>OBJECTIVE TEST</Text>
+                  <Text  fontSize={['xs', 'sm']}>{data.type} {data.month} {data.year} </Text>
+                  <Heading size={'md'} align={'center'}  fontSize={['xs', 'sm']}>{question?.part}</Heading>
+                  <Heading size={'md'} align={'center'}  fontSize={['xs', 'sm']}>{question?.label}</Heading>
                 </VStack>
                 <Flex alignItems={'center'}>
-                  <Text>{track} of {data.questions.length}</Text>
+                  <Text  fontSize={['xs', 'sm']}>{track} of {data.questions.length}</Text>
                   <Spacer />
                   <Timer setShowFinalScore={setShowFinalScore} isPlaying={isPlaying} />
                 </Flex>
                 <Heading  size='md' align={'center'} mb={3}>{question?.section}</Heading>
-                <Text align={'center'} m={5}>{question?.instructions}</Text>
+                <Text align={'center'}  fontSize={['xs', 'sm']} m={5}>{question?.instructions}</Text>
               </Box>
               <Box>
                   <Box align='center' m={3}>
                     {question.img ? (
                       <>
-                        <Text fontWeight={'semibold'}size={'s'} mb={'2'}>
+                        <Text fontWeight={'semibold'}size={'s'}  fontSize={['xs', 'sm']} mb={'2'}>
                         {question.question}
                         </Text>
-                        <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                        <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                             {question.sub1}
                         </Text>
-                        <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                        <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                             {question.sub2}
                         </Text>
                         <CldImage width="550" height="300" src={question.img} alt='questionImage'/>
-                        <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                        <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                             {question.sub3}
                         </Text>
-                        <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                        <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                             {question.sub4}
                         </Text>
-                        <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                        <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                             {question.sub5}
                         </Text>
                       </>
@@ -298,10 +298,10 @@ const EasyMode = (ctx) => {
                       <>
                         {question.mathsQuestion ? (
                           <>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                               {question.sub1}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                               {question.sub2}
                             </Text>
                             <Box className='flex justify-center'>
@@ -314,34 +314,34 @@ const EasyMode = (ctx) => {
                                 </Box>
                               )}
                             </Box>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                               {question.sub3}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                               {question.sub4}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub5}
                             </Text>
                           </>
                           ) : (
                           <>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub1}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub2}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub3}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub4}
                             </Text>
-                            <Text align={'center'} fontWeight={'semibold'} size={'s'} mb={'3'}>
+                            <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub5}
                             </Text>
-                            <Text fontWeight={'semibold'} size={'s'} mb={'5'}>
+                            <Text fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'5'}>
                               {question.question}
                             </Text>
                           </>
@@ -421,7 +421,7 @@ const EasyMode = (ctx) => {
                         <PopoverArrow />
                         <PopoverCloseButton />
                         <PopoverHeader bg={'pink.300'} >Tooltip!</PopoverHeader>
-                        <PopoverBody><Text>For better view of diagrams, zoom in or rotate screen to landscape</Text></PopoverBody>
+                        <PopoverBody><Text  fontSize={['xs', 'sm']}>For better view of diagrams, zoom in or rotate screen to landscape</Text></PopoverBody>
                       </PopoverContent>
                     </Popover>
                  </Show>
