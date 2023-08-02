@@ -61,7 +61,7 @@ const ExamSheet = (ctx) => {
                 <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
                 <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.section}</Heading>
                 <Text align={'center'} m={5} fontSize={['x-small', 'sm']}>{qtn.instructions}</Text>
-                <Box align='center' m={3}>
+                <Box align='center'>
                   {qtn.img ? (
                     <>
                     </>
