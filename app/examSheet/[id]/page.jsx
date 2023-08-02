@@ -96,7 +96,7 @@ const ExamSheet = (ctx) => {
                               {qtn.question}
                             </Text>
                           </HStack>
-                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} justifyItems={'start'}>
+                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} justifyItems={'start'} justifyContent={'flex-start'}>
                             <>
                               {qtn.optionimgA ? (
                                 <>
