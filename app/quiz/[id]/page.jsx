@@ -98,7 +98,7 @@ const Quiz = (ctx) => {
               {data.questions[0].question}
             </Text>
             <RadioGroup onChange={setValue} value={value}>
-              <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={6}>
+              <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={6} fontSize={['xs', 'sm']}>
                 <Radio borderColor='black' color={'red.300'} size='md' colorScheme='green' value={data.questions[0].optionA}>
                 {data.questions[0].optionMathsA ? (
                   <MathComponent tex={String.raw`𝐀. ${data.questions[0].optionMathsA}`} />
