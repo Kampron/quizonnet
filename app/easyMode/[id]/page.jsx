@@ -304,12 +304,12 @@ const EasyMode = (ctx) => {
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                               {question.sub2}
                             </Text>
-                            <Box className='flex justify-center'>
+                            <Box className='flex justify-center'fontSize={['xs', 'sm']}>
                               <MathComponent tex={String.raw`${question.mathsQuestion}`} />
                             </Box>
                             <Box>
-                              {data.questions[currentQn].mathsQuestion1 && (
-                                <Box className='flex justify-center'>
+                              {data.question.mathsQuestion1 && (
+                                <Box className='flex justify-center' fontSize={['xs', 'sm']}>
                                   <MathComponent tex={String.raw`${data.questions[currentQn].mathsQuestion1}`} />
                                 </Box>
                               )}
@@ -358,7 +358,9 @@ const EasyMode = (ctx) => {
                       value={question?.optionMathsA ? question?.optionMathsA : question?.optionA}
                     >
                         {question.optionMathsA ? (
+                          <Box fontSize={['xs', 'sm']}>
                           <MathComponent tex={String.raw`𝐀. ${question?.optionMathsA}`} />
+                          </Box>
                         ) :(
                           <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐀.   {question?.optionA}</Text>
                         )}
@@ -369,7 +371,9 @@ const EasyMode = (ctx) => {
                       value={question?.optionMathsB ? question?.optionMathsB : question?.optionB}
                     >
                       {question.optionMathsB ? (
+                        <Box fontSize={['xs', 'sm']}>
                         <MathComponent tex={String.raw`𝐁. ${question?.optionMathsB}`} />
+                        </Box>
                         ) : (
                         <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐁.   {question?.optionB}</Text>
                       )}
@@ -380,7 +384,9 @@ const EasyMode = (ctx) => {
                       value={question?.optionMathsC ? question?.optionMathsC : question?.optionC}
                     >
                       {question.optionMathsC ? (
+                        <Box fontSize={['xs', 'sm']}>
                         <MathComponent tex={String.raw`𝐂. ${question?.optionMathsC}`} />
+                        </Box>
                         ) : (
                         <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐂.   {question?.optionC}</Text>
                       )}
@@ -391,7 +397,9 @@ const EasyMode = (ctx) => {
                       value={question?.optionMathsD ? question?.optionMathsD : question?.optionD}
                     >
                       {question.optionMathsD ? (
+                        <Box fontSize={['xs', 'sm']}>
                         <MathComponent tex={String.raw`𝐃. ${question?.optionMathsD}`} />
+                        </Box>
                         ) : (
                         <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐃.   {question?.optionD}</Text>
                       )}
