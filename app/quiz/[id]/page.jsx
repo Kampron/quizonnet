@@ -66,6 +66,7 @@ const Quiz = (ctx) => {
       mx={[4, 4, 5, 'auto']}
       borderRadius={5}
       className='font-poppins w-full'
+      fontSize={['xs', 'sm']}
     >
       <Box align={'left'}>  
         <HStack>

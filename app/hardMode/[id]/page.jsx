@@ -174,7 +174,7 @@ const HardMode = (ctx) => {
           {showFinalScore ? (
             <Box  fontSize={['xs', 'sm']}>
               <VStack spacing={3}>
-                <Heading  fontSize={['xs', 'sm']}>Quiz has ended</Heading>
+                <Heading  fontSize={'2xl'}>Quiz has ended</Heading>
                 <Text  fontSize={['xs', 'sm']}>{scores} out {data.questions.length}</Text>
                 <Text  color={'blue.500'} fontSize='4xl'>Your Score: {percentScore}%</Text>
                 <Text  fontSize={['xs', 'sm']}>{remarks}</Text>

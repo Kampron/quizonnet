@@ -197,10 +197,10 @@ const EasyMode = (ctx) => {
     <Box
       color={'gray.900'}
       bg={('gray.300')}
-      p={'10'}
+      p={[1, 5]}
       maxW={800}
       my={'10'}
-      mx={[4, 4, 5, 'auto']}
+      mx={[2, 'auto']}
       borderRadius={5}
       className='font-poppins w-full'
     >
@@ -219,7 +219,7 @@ const EasyMode = (ctx) => {
             <>
               <Box  fontSize={['xs', 'sm']}>
                 <VStack spacing={3}>
-                  <Heading>Quiz has ended</Heading>
+                  <Heading fontSize={'2xl'}>Quiz has ended</Heading>
                   <Text> {attempts} out of {data.questions.length} </Text>
                   <Text color={'blue.500'} fontSize='4xl'>Your Score: {percentScore}%</Text>
                   <Text>{remarks}</Text>
@@ -325,7 +325,7 @@ const EasyMode = (ctx) => {
                             </Text>
                           </>
                           ) : (
-                          <>
+                          <Box className='flex justify-start' >
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub1}
                             </Text>
@@ -344,7 +344,7 @@ const EasyMode = (ctx) => {
                             <Text fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'5'}>
                               {question.question}
                             </Text>
-                          </>
+                          </Box>
                         )}
                       </>
                     )}
