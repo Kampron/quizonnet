@@ -198,6 +198,7 @@ const ExamSheet = (ctx) => {
               </Box>
             ))}
           </Box>
+          <Text fontStyle={'italic'} mt={4} fontWeight={'bold'} fontSize={['xs', 'sm']} className='flex justify-center'>END OF OBJECTIVE TEST</Text>
         </Box>
       )}
     </Box>
