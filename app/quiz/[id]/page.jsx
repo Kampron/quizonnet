@@ -78,7 +78,7 @@ const Quiz = (ctx) => {
       </Box>
       {easyMode? (
         <>
-          <Box>
+          <Box fontSize={['xs', 'sm']}>
             <VStack>
               <Heading align={'center'}>{data.subject.toUpperCase()}</Heading>
               <Text>OBJECTIVE TEST</Text>

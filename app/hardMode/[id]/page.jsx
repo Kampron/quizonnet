@@ -153,15 +153,15 @@ const HardMode = (ctx) => {
     <Box 
       color={'gray.900'}
       bg={('gray.300')}
-      p={'10'}
+      p={[3, 5]}
       maxW={800}
       my={'10'}
-      mx={[4, 4, 5, 'auto']}
+      mx={[2, 'auto']}
       borderRadius={5}
       className='font-poppins w-full'
     >
       {!data ? (
-        <Box align={'center'}>
+        <Box align={'center'} fontSize={['xs', 'sm']}>
           <Text>
             Loading Quiz....
           </Text>

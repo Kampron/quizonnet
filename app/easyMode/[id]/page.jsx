@@ -197,7 +197,7 @@ const EasyMode = (ctx) => {
     <Box
       color={'gray.900'}
       bg={('gray.300')}
-      p={[1, 5]}
+      p={[3, 5]}
       maxW={800}
       my={'10'}
       mx={[2, 'auto']}
@@ -341,7 +341,7 @@ const EasyMode = (ctx) => {
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub5}
                             </Text>
-                            <Text fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'5'}>
+                            <Text fontWeight={'semibold'}  fontSize={['xs', 'sm']} mb={'2'}>
                               {question.question}
                             </Text>
                           </Box>
