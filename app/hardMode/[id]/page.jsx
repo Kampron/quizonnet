@@ -172,20 +172,20 @@ const HardMode = (ctx) => {
       ) : (
         <>
           {showFinalScore ? (
-            <Box>
+            <Box  fontSize={['xs', 'sm']}>
               <VStack spacing={3}>
-                <Heading>Quiz has ended</Heading>
-                <Text>{scores} out {data.questions.length}</Text>
-                <Text color={'blue.500'} fontSize='4xl'>Your Score: {percentScore}%</Text>
-                <Text>{remarks}</Text>
+                <Heading  fontSize={['xs', 'sm']}>Quiz has ended</Heading>
+                <Text  fontSize={['xs', 'sm']}>{scores} out {data.questions.length}</Text>
+                <Text  color={'blue.500'} fontSize='4xl'>Your Score: {percentScore}%</Text>
+                <Text  fontSize={['xs', 'sm']}>{remarks}</Text>
               </VStack>
               <Box mb={5} mt={5}>
                 <Flex>
                   <UnorderedList listStyleType={'none'}>
-                    <ListItem>Number of Questions:</ListItem><br />
-                    <ListItem>Attempted Questions:</ListItem><br />
-                    <ListItem>Correct Answers:</ListItem><br />
-                    <ListItem>Wrong Answers:</ListItem>
+                    <ListItem  fontSize={['xs', 'sm']}>Number of Questions:</ListItem><br />
+                    <ListItem  fontSize={['xs', 'sm']}>Attempted Questions:</ListItem><br />
+                    <ListItem  fontSize={['xs', 'sm']}>Correct Answers:</ListItem><br />
+                    <ListItem  fontSize={['xs', 'sm']}>Wrong Answers:</ListItem>
                   </UnorderedList>
                   <Spacer />
                   <UnorderedList listStyleType={'none'}>
@@ -210,7 +210,7 @@ const HardMode = (ctx) => {
                 <audio ref={wrongAudio} src='/assets/audio/wrongSound.mp3'/>
                 <audio ref={correctAudio} src='/assets/audio/correctSound.mp3' />
               </>
-              <Box>
+              <Box  fontSize={['xs', 'sm']}>
                 <VStack>
                   <Heading align={'center'}>{data.subject.toUpperCase()}</Heading>
                   <Text>OBJECTIVE TEST</Text><Text>{data.type} {data.month} {data.year}</Text>
@@ -225,7 +225,7 @@ const HardMode = (ctx) => {
                 <Heading size="md" align={'center'} mb={3}>{data.questions[currentQn].section}</Heading>
                 <Text align={'center'} m={5}>{data.questions[currentQn].instructions}</Text>
               </Box>
-              <Box>
+              <Box  fontSize={['xs', 'sm']}>
                   <Box align='center' m={3}>
                     {data.questions[currentQn].img ? (
                       <>
@@ -520,7 +520,7 @@ const HardMode = (ctx) => {
                       </>
                   </Grid>
               </Box>
-              <Box>
+              <Box  fontSize={['xs', 'sm']}>
                 <HStack mt={'10'} spacing={50}>
                   <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
                   <Button size={['xs', 'sm']}><Link href={`/quiz/${data._id}`}>Back</Link></Button>

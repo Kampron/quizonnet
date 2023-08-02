@@ -217,7 +217,7 @@ const EasyMode = (ctx) => {
         <>
           {showFinalScore ? (
             <>
-              <Box>
+              <Box  fontSize={['xs', 'sm']}>
                 <VStack spacing={3}>
                   <Heading>Quiz has ended</Heading>
                   <Text> {attempts} out of {data.questions.length} </Text>
