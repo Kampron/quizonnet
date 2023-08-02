@@ -31,7 +31,7 @@ const ExamSheet = (ctx) => {
     <Box
       color={'gray.900'}
       bg={('gray.300')}
-      p={[1, 5]}
+      p={[2, 5]}
       maxW={800}
       my={'10'}
       mx={[2, 'auto']}
@@ -92,7 +92,7 @@ const ExamSheet = (ctx) => {
                           </Text>
                           <HStack justify={'flex-start'} className='flex justify-start' align={'center'}>
                             
-                            <Text fontWeight={'semibold'}  noOfLines={[3,2,1]} fontSize={['x-small', 'sm']}>
+                            <Text fontWeight={'semibold'} className='flex justify-start'  noOfLines={[3,2,1]} fontSize={['x-small', 'sm']}>
                               {qtn.question}
                             </Text>
                           </HStack>
