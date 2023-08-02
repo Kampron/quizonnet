@@ -308,9 +308,9 @@ const EasyMode = (ctx) => {
                               <MathComponent tex={String.raw`${question.mathsQuestion}`} />
                             </Box>
                             <Box>
-                              {data.question.mathsQuestion1 && (
+                              {question.mathsQuestion1 && (
                                 <Box className='flex justify-center' fontSize={['xs', 'sm']}>
-                                  <MathComponent tex={String.raw`${data.questions[currentQn].mathsQuestion1}`} />
+                                  <MathComponent tex={String.raw`${question.mathsQuestion1}`} />
                                 </Box>
                               )}
                             </Box>
