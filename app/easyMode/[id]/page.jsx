@@ -246,9 +246,9 @@ const EasyMode = (ctx) => {
                 <HStack mt={10}>
                   <Button size={['xs', 'sm']} onClick={restartQuiz}>Restart</Button>
                   <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
-                  <Button size={['xs', 'sm']}>
+                  {/* <Button size={['xs', 'sm']}>
                     <Link href={'#'}>Review Answers</Link>
-                  </Button>
+                  </Button> */}
                 </HStack>
               </Box>
             </>

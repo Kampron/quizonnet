@@ -199,9 +199,9 @@ const HardMode = (ctx) => {
               <HStack>
                 <Button size={['xs', 'sm']} onClick={restartQuiz}>Restart</Button>
                 <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
-                <Button size={['xs', 'sm']}>
+                {/* <Button size={['xs', 'sm']}>
                   <Link href={'#'}>Review Answer</Link>
-                </Button>
+                </Button> */}
               </HStack>
             </Box>
           ) : (
