@@ -205,7 +205,7 @@ const EasyMode = (ctx) => {
       className='font-poppins w-full'
     >
       {(!question || !data) ? (
-        <Box align={'center'}>
+        <Box align={'center'} fontSize={['xs', 'sm']}>
           <Text>
             Loading Quiz....
           </Text>
