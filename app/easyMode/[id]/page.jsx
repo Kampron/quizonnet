@@ -273,7 +273,7 @@ const EasyMode = (ctx) => {
               <Box>
                   <Box align='center' mb={5}>
                     {question.img ? (
-                      <>
+                      <Box fontSize={['xs', 'sm']}>
                         <Text fontWeight={'semibold'}size={'s'}  fontSize={['xs', 'sm']} mb={'2'}>
                         {question.question}
                         </Text>
@@ -293,11 +293,11 @@ const EasyMode = (ctx) => {
                         <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                             {question.sub5}
                         </Text>
-                      </>
+                      </Box>
                     ) : (
                       <>
                         {question.mathsQuestion ? (
-                          <>
+                          <Box fontSize={['xs', 'sm']}>
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                               {question.sub1}
                             </Text>
@@ -323,7 +323,7 @@ const EasyMode = (ctx) => {
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
                                 {question.sub5}
                             </Text>
-                          </>
+                          </Box>
                           ) : (
                           <Box >
                             <Text align={'center'} fontWeight={'semibold'} size={'s'}  fontSize={['xs', 'sm']} mb={'3'}>
@@ -353,15 +353,15 @@ const EasyMode = (ctx) => {
                 <RadioGroup onChange={setValue}  value={ PrevResult? PrevResult : value } >
                   <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={6}>
                     <Radio 
-                      size='lg' 
+                      size="lg"
                       borderColor='black' colorScheme='green' 
                       value={question?.optionMathsA ? question?.optionMathsA : question?.optionA}
                     >
                         {question.optionMathsA ? (
                           <Box fontSize={['xs', 'sm']}>
-                          <MathComponent tex={String.raw`𝐀. ${question?.optionMathsA}`} />
+                            <MathComponent tex={String.raw`𝐀. ${question?.optionMathsA}`} />
                           </Box>
-                        ) :(
+                        ) : (
                           <Text className='font-quicksand' fontWeight='semibold' fontSize={['xs', 'sm']} >𝐀.   {question?.optionA}</Text>
                         )}
                     </Radio>

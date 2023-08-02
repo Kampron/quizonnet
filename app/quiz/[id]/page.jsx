@@ -100,28 +100,36 @@ const Quiz = (ctx) => {
               <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={6} >
                 <Radio borderColor='black' color={'red.300'} size='md' colorScheme='green' value={data.questions[0].optionA}>
                 {data.questions[0].optionMathsA ? (
-                  <MathComponent tex={String.raw`𝐀. ${data.questions[0].optionMathsA}`} />
+                  <Box fontSize={['xs', 'sm']}>
+                    <MathComponent tex={String.raw`𝐀. ${data.questions[0].optionMathsA}`} />
+                  </Box>
                 ) : (
                   <Text className='font-quicksand' fontWeight='medium' fontSize={['xs', 'sm']} >𝐀.  {data.questions[0].optionA}</Text>
                 )}
                 </Radio>
                 <Radio borderColor='black' color={'red.300'} size='md' colorScheme='green' value={data.questions[0].optionB}>
                 {data.questions[0].optionMathsB ? (
-                  <MathComponent tex={String.raw`𝐁. ${data.questions[0].optionMathsB}`} />
+                  <Box fontSize={['xs', 'sm']}>
+                    <MathComponent tex={String.raw`𝐁. ${data.questions[0].optionMathsB}`} />
+                  </Box>
                 ) : (
                   <Text className='font-quicksand' fontWeight='medium' fontSize={['xs', 'sm']} >𝐁.  {data.questions[0].optionB}</Text>
                 )}
                 </Radio>
                 <Radio borderColor='black' color={'red.300'} size='md' colorScheme='green' value={data.questions[0].optionC}>
                   {data.questions[0].optionMathsC ? (
-                    <MathComponent tex={String.raw`𝐂. ${data.questions[0].optionMathsC}`} />
+                    <Box fontSize={['xs', 'sm']}>
+                      <MathComponent tex={String.raw`𝐂. ${data.questions[0].optionMathsC}`} />
+                    </Box>
                   ) : (
                     <Text className='font-quicksand' fontWeight='medium' fontSize={['xs', 'sm']} >𝐂.  {data.questions[0].optionC}</Text>
                   )}
                 </Radio>
                 <Radio borderColor='black' color={'red.300'} size='md' colorScheme='green' value={data.questions[0].optionD}>
                   {data.questions[0].optionMathsD ? (
-                    <MathComponent tex={String.raw`𝐃. ${data.questions[0].optionMathsD}`} />
+                    <Box fontSize={['xs', 'sm']}>
+                      <MathComponent tex={String.raw`𝐃. ${data.questions[0].optionMathsD}`} />
+                    </Box>
                   ) : (
                     <Text className='font-quicksand' fontWeight='medium' fontSize={['xs', 'sm']} >𝐃.  {data.questions[0].optionD}</Text>
                   )}
