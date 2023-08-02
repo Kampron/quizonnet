@@ -35,7 +35,7 @@ export const questionReducer = createSlice({
     resetAllAction : (state, action) => {
       return {
         ...state,
-        trace : state.trace - (action.payload - 1)
+        trace : state.trace - (state.trace)
       }
     }
   }

@@ -98,6 +98,7 @@ const EasyMode = (ctx) => {
   
   const quitBtn = () => {
     if (window.confirm('Are you sure you want to quit?')) {
+      restartQuiz()
       router.push('/')
    }
   }
@@ -419,11 +420,11 @@ const EasyMode = (ctx) => {
               <Box>
                 <HStack mt={'10'} spacing={50}>
                   <Button size={['xs', 'sm']} onClick={quitBtn}>Quit</Button>
-                  <Button size={['xs', 'sm']}><Link href={`/quiz/${data._id}`}>Back</Link></Button>
+                  <Button size={['xs', 'sm']} onClick={restartQuiz}><Link href={`/quiz/${data._id}`}>Back</Link></Button>
                   <Show below="sm" >
                     <Popover>
                       <PopoverTrigger>
-                          <IconButton size='sm' icon={<MdOutlineTipsAndUpdates />} w={8} h={8} color='pink.700' />
+                          <IconButton size='sm' icon={<MdOutlineTipsAndUpdates size={15} />} w={8} h={8} color='pink.700' />
                       </PopoverTrigger>
                       <PopoverContent>
                         <PopoverArrow />
