@@ -408,12 +408,12 @@ const EasyMode = (ctx) => {
                   </Grid>
                 </RadioGroup>
                 <Flex mt={10}>
-                  {trace > 0 ? <Button borderRadius={1} colorScheme='yellow' color={'black'}onClick={onPrev} >Prev</Button> : <></>}
+                  {trace > 0 ? <Button fontSize={['xs', 'sm']} borderRadius={1} colorScheme='yellow' color={'black'}onClick={onPrev} >Prev</Button> : <></>}
                   <Spacer />
                   {(track === data.questions.length)? (
-                    <Button borderRadius={1} colorScheme='green'  color={'black'} onClick={Done}>Done</Button>
+                    <Button fontSize={['xs', 'sm']} borderRadius={1} colorScheme='green'  color={'black'} onClick={Done}>Done</Button>
                   ) : (
-                    <Button borderRadius={1} colorScheme='green' color={'black'} onClick={onNext}>Next</Button>
+                    <Button fontSize={['xs', 'sm']} borderRadius={1} colorScheme='green' color={'black'} onClick={onNext}>Next</Button>
                   )} 
                 </Flex>
               </Box>
