@@ -527,7 +527,7 @@ const HardMode = (ctx) => {
                   <Show below="sm" >
                     <Popover>
                       <PopoverTrigger>
-                          <Icon as={MdOutlineTipsAndUpdates} w={6} h={6} color='pink.700' />
+                        <IconButton size='sm' icon={<MdOutlineTipsAndUpdates />} w={8} h={8} color='pink.700' />
                       </PopoverTrigger>
                       <PopoverContent>
                         <PopoverArrow />

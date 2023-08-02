@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import { Box, Button, Flex, Grid, Heading, HStack, Icon, ListItem, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Radio, RadioGroup, Show, Spacer, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, UnorderedList, VStack} from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Heading, HStack, Icon, IconButton, ListItem, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Radio, RadioGroup, Show, Spacer, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, UnorderedList, VStack} from "@chakra-ui/react";
 import Timer from '@/components/Timer20';
 import { useSelector, useDispatch } from "react-redux";
 import * as Action from '@/redux/question_reducer'
@@ -423,7 +423,7 @@ const EasyMode = (ctx) => {
                   <Show below="sm" >
                     <Popover>
                       <PopoverTrigger>
-                          <Icon as={MdOutlineTipsAndUpdates} w={8} h={8} color='pink.700' />
+                          <IconButton size='sm' icon={<MdOutlineTipsAndUpdates />} w={8} h={8} color='pink.700' />
                       </PopoverTrigger>
                       <PopoverContent>
                         <PopoverArrow />
