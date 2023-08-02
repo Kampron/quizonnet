@@ -9,6 +9,9 @@ const questionsSchema = new Schema({
     type: Number,
     required: true
   },
+  num: {
+    type: Number,
+  },
   month: {
     type: String,
     required: true
