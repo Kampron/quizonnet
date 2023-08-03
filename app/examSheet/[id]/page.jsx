@@ -61,143 +61,193 @@ const ExamSheet = (ctx) => {
                 <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
                 <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.section}</Heading>
                 <Text align={'center'} m={5} fontSize={['x-small', 'sm']}>{qtn.instructions}</Text>
-                <Box align='center'>
+                <Box fontSize={['x-small', 'sm']} align='center' fontWeight={'semibold'}>
                   {qtn.img ? (
                     <>
+                      <Text  mb={'2'}>
+                        {qtn.question}
+                      </Text>
+                      <Text  mb={'2'}>
+                        {qtn.sub1}
+                      </Text>
+                      <Text  mb={'2'}>
+                        {qtn.sub2}
+                      </Text>
+                      <HStack gap={1}>
+                        <Text>{qtn.num}</Text>
+                        <CldImage width="550" height="300" src={qtn.img} alt='questionImage' />
+                      </HStack>
+                      <Text  mb={'2'}>
+                        {qtn.sub3}
+                      </Text>
+                      <Text  mb={'2'}>
+                        {qtn.sub4}
+                      </Text>
+                      <Text  mb={'2'}>
+                        {qtn.sub5}
+                      </Text>
                     </>
-                  ) : (
+                    ) : (
                     <>
                       {qtn.mathsQuestion ? (
                         <>
+                          <Text mb={'2'} className='flex justify-start'>
+                            {qtn.sub1}
+                          </Text>
+                          <Text  className='flex justify-start'>
+                            {qtn.sub2}
+                          </Text>
+                          <Box className='flex justify-start' my={-3}>
+                            <MathComponent tex={String.raw`${qtn.mathsQuestion}`} />
+                          </Box>
+                          <Box>
+                            {qtn.mathsQuestion1 && (
+                              <Box className='flex justify-start' mt={2}>
+                              <MathComponent tex={String.raw`${qtn.mathsQuestion1}`} />
+                            </Box>
+                            )}
+                          </Box>
+                          <Text mt={2}  className='flex justify-start'>
+                            {qtn.sub3}
+                          </Text>
+                          <Text mb={'2'} className='flex justify-start'>
+                            {qtn.sub4}
+                          </Text>
+                          <Text mb={'2'} className='flex justify-start'>
+                            {qtn.sub5}
+                          </Text>
                         </>
                       ) : (
                         <>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
+                          <Text  mb={'3'}>
                               {qtn.sub1}
                           </Text>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
+                          <Text  mb={'3'}>
                               {qtn.sub2}
                           </Text>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'}fontSize={['x-small', 'sm']} mb={'3'}>
+                          <Text  mb={'3'}>
                               {qtn.sub3}
                           </Text>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
+                          <Text  mb={'3'}>
                               {qtn.su4}
                           </Text>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
+                          <Text  mb={'3'}>
                               {qtn.sub5}
                           </Text>
-                          <Text align={'center'} fontWeight={'semibold'} size={'s'} fontSize={['x-small', 'sm']} mb={'3'}>
+                          <Text  mb={'3'}>
                               {qtn.sub6}
                           </Text>
-                          <HStack justify={'flex-start'} className='flex justify-start' align={'center'}>
-                            
-                            <Text fontWeight={'semibold'} className='flex justify-start'  noOfLines={[3,2,1]} fontSize={['x-small', 'sm']}>
+                          <Box className='flex justify-start' align={'center'}>
+                            <Text  className='flex justify-start'  noOfLines={[3,2,1]} >
                               {qtn.question}
                             </Text>
-                          </HStack>
-                          <Text align={'center'} className='flex justify-start'  fontWeight={'semibold'} fontSize={['x-small', 'sm']}>
-                            {qtn.num}.
+                          </Box>
+                          <Text  className='flex justify-start'>
+                            {qtn.num}
                           </Text>
-                          <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} >
-                            <>
-                              {qtn.optionimgA ? (
-                                <>
-                                </>
-                              ) : (
-                                <>
-                                  {qtn.optionMathsA ? (
-                                    <></>
-                                  ) : (
-                                    <Box className='flex justify-start'>
-                                      <Text 
-                                        className='font-quicksand'  
-                                        noOfLines={[3,2,1]}
-                                        fontWeight='semibold' 
-                                        fontSize={['x-small', 'sm']}
-                                      >
-                                        𝐀. {qtn.optionA}
-                                      </Text>
-                                    </Box>    
-                                  )}
-                                </>
-                              )}
-                            </>
-                            <>
-                              {qtn.optionimgB ? (
-                                <>
-                                </>
-                              ) : (
-                                <>
-                                  {qtn.optionMathsB ? (
-                                    <></>
-                                  ) : (
-                                  <Box className='flex justify-start'>
-                                    <Text 
-                                      className='font-quicksand' 
-                                      noOfLines={[3,2,1]} 
-                                      fontWeight='semibold' 
-                                      fontSize={['x-small', 'sm']}
-                                    >
-                                      𝐁. {qtn.optionB}
-                                    </Text>
-                                  </Box>
-                                  )}
-                                </>
-                              )}
-                            </>
-                            <>
-                              {qtn.optionimgC ? (
-                                <>
-                                </>
-                              ) : (
-                                <>
-                                  {qtn.optionMathsC ? (
-                                    <></>
-                                  ) : (
-                                    <Box className='flex justify-start'>
-                                      <Text 
-                                        className='font-quicksand'  
-                                        noOfLines={[3,2,1]}
-                                        fontWeight='semibold' 
-                                        fontSize={['x-small', 'sm']}
-                                      >
-                                        𝐂. {qtn.optionC}
-                                      </Text>
-                                    </Box>
-                                  )}
-                                </>
-                              )}
-                            </>
-                            <>
-                              {qtn.optionimgD ? (
-                                <>
-                                </>
-                              ) : (
-                                <>
-                                  {qtn.optionMathsD ? (
-                                    <></>
-                                  ) : (
-                                    <Box className='flex justify-start'>
-                                      <Text 
-                                        className='font-quicksand'  
-                                        noOfLines={[3,2,1]}
-                                        fontWeight='semibold' 
-                                        fontSize={['x-small', 'sm']}
-                                      >
-                                        𝐃. {qtn.optionD}
-                                      </Text>
-                                    </Box>
-                                  )}
-                                </>
-                              )}
-                            </>
-                          </Grid>
                         </>
                       )}
                     </>
                   )}
                 </Box>
+                <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} >
+                  <>
+                    {qtn.optionimgA ? (
+                      <CldImage width="30"height="30"  src={qtn.optionimgA} alt='questionImg' />
+                    ) : (
+                      <>
+                        {qtn.optionMathsA ? (
+                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                            <MathComponent tex={String.raw` 𝐀.${qtn.optionMathsA}`} />
+                          </Box>
+                        ) : (
+                          <Box className='flex justify-start'>
+                            <Text 
+                              className='font-quicksand'  
+                              noOfLines={[3,2,1]}
+                              fontWeight='semibold' 
+                              fontSize={['x-small', 'sm']}
+                            >
+                              𝐀.{qtn?.optionA}
+                            </Text>
+                          </Box>    
+                        )}
+                      </>
+                    )}
+                  </>
+                  <>
+                    {qtn.optionimgB ? (
+                      <CldImage width="30"height="30"  src={qtn.optionimgB} alt='questionImg' />
+                    ) : (
+                      <>
+                        {qtn.optionMathsB ? (
+                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                              <MathComponent tex={String.raw`𝐁.${qtn.optionMathsB}`} />
+                            </Box>
+                        ) : (
+                        <Box className='flex justify-start'>
+                          <Text 
+                            className='font-quicksand' 
+                            noOfLines={[3,2,1]} 
+                            fontWeight='semibold' 
+                            fontSize={['x-small', 'sm']}
+                          >
+                            𝐁.{qtn?.optionB}
+                          </Text>
+                        </Box>
+                        )}
+                      </>
+                    )}
+                  </>
+                  <>
+                    {qtn.optionimgC ? (
+                      <CldImage width="30"height="30"  src={qtn.optionimgC} alt='questionImg' />
+                    ) : (
+                      <>
+                        {qtn.optionMathsC ? (
+                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                            <MathComponent tex={String.raw`𝐂.${qtn.optionMathsC}`} />
+                          </Box>
+                        ) : (
+                          <Box className='flex justify-start'>
+                            <Text 
+                              className='font-quicksand'  
+                              noOfLines={[3,2,1]}
+                              fontWeight='semibold' 
+                              fontSize={['x-small', 'sm']}
+                            >
+                              𝐂.{qtn?.optionC}
+                            </Text>
+                          </Box>
+                        )}
+                      </>
+                    )}
+                  </>
+                  <>
+                    {qtn.optionimgD ? (
+                      <CldImage width="30"height="30"  src={qtn.optionimgD} alt='questionImg' />
+                    ) : (
+                      <>
+                        {qtn.optionMathsD ? (
+                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                            <MathComponent tex={String.raw`𝐃.${qtn.optionMathsD}`} />
+                          </Box>
+                        ) : (
+                          <Box className='flex justify-start'>
+                            <Text 
+                              className='font-quicksand'  
+                              noOfLines={[3,2,1]}
+                              fontWeight='semibold' 
+                              fontSize={['x-small', 'sm']}
+                            >
+                              𝐃.{qtn?.optionD}
+                            </Text>
+                          </Box>
+                        )}
+                      </>
+                    )}
+                  </>
+                </Grid>
               </Box>
             ))}
           </Box>
