@@ -32,7 +32,7 @@ const ExamSheet = (ctx) => {
       color={'gray.900'}
       bg={('gray.300')}
       p={[2, 5]}
-      maxW={800}
+      maxW={850}
       my={'10'}
       mx={[2, 'auto']}
       borderRadius={5}
@@ -60,24 +60,30 @@ const ExamSheet = (ctx) => {
                 <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.part}</Heading>
                 <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
                 <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.section}</Heading>
-                <Text align={'center'} m={5} fontSize={['x-small', 'sm']}>{qtn.instructions}</Text>
+                <Box>
+                  {qtn.mathsInstructions && (
+                    <Box className='flex justify-center' mt={2}  fontSize={['x-small', 'sm']}>
+                      <MathComponent tex={String.raw`${qtn.mathsInstructions}`} />
+                    </Box>
+                  )}
+                </Box>
                 <Box fontSize={['x-small', 'sm']} align='center' fontWeight={'semibold'}>
                   {qtn.img ? (
                     <>
                       <Text  mb={'2'}>
                         {qtn.question}
                       </Text>
-                      <Text  mb={'2'}>
+                      <Text  mb={'2'} >
                         {qtn.sub1}
                       </Text>
-                      <Text  mb={'2'}>
+                      <Text  mb={'2'} >
                         {qtn.sub2}
                       </Text>
                       <HStack gap={1}>
                         <Text>{qtn.num}</Text>
                         <CldImage width="550" height="300" src={qtn.img} alt='questionImage' />
                       </HStack>
-                      <Text  mb={'2'}>
+                      <Text  mb={'2'} >
                         {qtn.sub3}
                       </Text>
                       <Text  mb={'2'}>
@@ -97,7 +103,7 @@ const ExamSheet = (ctx) => {
                           <Text  className='flex justify-start'>
                             {qtn.sub2}
                           </Text>
-                          <Box className='flex justify-start' my={-3}>
+                          <Box className='flex justify-start' my={-4}>
                             <MathComponent tex={String.raw`${qtn.mathsQuestion}`} />
                           </Box>
                           <Box>
@@ -111,7 +117,7 @@ const ExamSheet = (ctx) => {
                             {qtn.sub3}
                           </Text>
                           <Text mb={'2'} className='flex justify-start'>
-                            {qtn.sub4}
+                            {qtn.question}
                           </Text>
                           <Text mb={'2'} className='flex justify-start'>
                             {qtn.sub5}
@@ -119,13 +125,13 @@ const ExamSheet = (ctx) => {
                         </>
                       ) : (
                         <>
-                          <Text  mb={'3'}>
+                          <Text  mb={'3'} >
                               {qtn.sub1}
                           </Text>
-                          <Text  mb={'3'}>
+                          <Text  mb={'3'} >
                               {qtn.sub2}
                           </Text>
-                          <Text  mb={'3'}>
+                          <Text  mb={'3'} >
                               {qtn.sub3}
                           </Text>
                           <Text  mb={'3'}>
@@ -157,7 +163,7 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsA ? (
-                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                          <Box fontWeight='semibold' mb={-5} fontSize={['x-small', 'sm']}>
                             <MathComponent tex={String.raw` 𝐀.${qtn.optionMathsA}`} />
                           </Box>
                         ) : (
@@ -181,7 +187,7 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsB ? (
-                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                          <Box fontWeight='semibold' mb={-4} fontSize={['x-small', 'sm']}>
                               <MathComponent tex={String.raw`𝐁.${qtn.optionMathsB}`} />
                             </Box>
                         ) : (
@@ -205,7 +211,7 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsC ? (
-                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                          <Box fontWeight='semibold' mb={-4} fontSize={['x-small', 'sm']}>
                             <MathComponent tex={String.raw`𝐂.${qtn.optionMathsC}`} />
                           </Box>
                         ) : (
@@ -229,7 +235,7 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsD ? (
-                          <Box fontWeight='semibold' fontSize={['x-small', 'sm']}>
+                          <Box fontWeight='semibold' mb={3} fontSize={['x-small', 'sm']}>
                             <MathComponent tex={String.raw`𝐃.${qtn.optionMathsD}`} />
                           </Box>
                         ) : (
@@ -238,6 +244,7 @@ const ExamSheet = (ctx) => {
                               className='font-quicksand'  
                               noOfLines={[3,2,1]}
                               fontWeight='semibold' 
+                              mb={3}
                               fontSize={['x-small', 'sm']}
                             >
                               𝐃.{qtn?.optionD}
