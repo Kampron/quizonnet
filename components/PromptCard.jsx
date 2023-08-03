@@ -67,7 +67,7 @@ const PromptCard = ({ post }) => {
           </Link>
           <Link 
             title="Practice Exam"
-            href={`/quiz/${post._id}`}
+            href={ session?.user ? `/quiz/${post._id}` : '/login'}
             className="copy_btn" 
           >
             <PiExamDuotone size={26}/>
