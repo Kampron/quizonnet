@@ -69,7 +69,7 @@ const ExamSheet = (ctx) => {
                 </Box>
                 <Box fontSize={['x-small', 'sm']} align='center' fontWeight={'semibold'}>
                   {qtn.img ? (
-                    <>
+                    <Box my={3}>
                       <Text  mb={'2'}>
                         {qtn.question}
                       </Text>
@@ -92,11 +92,11 @@ const ExamSheet = (ctx) => {
                       <Text  mb={'2'}>
                         {qtn.sub5}
                       </Text>
-                    </>
+                    </Box>
                     ) : (
                     <>
                       {qtn.mathsQuestion ? (
-                        <>
+                        <Box my={3}>
                           <Text mb={'2'} className='flex justify-start'>
                             {qtn.sub1}
                           </Text>
@@ -108,7 +108,7 @@ const ExamSheet = (ctx) => {
                           </Box>
                           <Box>
                             {qtn.mathsQuestion1 && (
-                              <Box className='flex justify-start' mt={2}>
+                              <Box className='flex justify-start' my={2}>
                               <MathComponent tex={String.raw`${qtn.mathsQuestion1}`} />
                             </Box>
                             )}
@@ -122,9 +122,9 @@ const ExamSheet = (ctx) => {
                           <Text mb={'2'} className='flex justify-start'>
                             {qtn.sub5}
                           </Text>
-                        </>
+                        </Box>
                       ) : (
-                        <>
+                        <Box my={3}>
                           <Text  mb={'3'} >
                               {qtn.sub1}
                           </Text>
@@ -151,7 +151,7 @@ const ExamSheet = (ctx) => {
                           <Text  className='flex justify-start'>
                             {qtn.num}
                           </Text>
-                        </>
+                        </Box>
                       )}
                     </>
                   )}
