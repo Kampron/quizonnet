@@ -25,8 +25,26 @@ const PromptCard = ({ post }) => {
   const router = useRouter()
  
 
-  const handleAddToDashboard = () => {
-    
+  const handleAddToDashboard = async () => {
+    if(!session?.user) {
+      router.push('/login')
+    } else {
+      try {
+        console.log(session?.user.id)
+        const response = await fetch(`/api/questions/user/addId/${session?.user.id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            id: post._id
+          })
+        })
+
+        if(response.ok) {
+          console.log('added to dashboard')
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 
   return (
@@ -75,9 +93,12 @@ const PromptCard = ({ post }) => {
           <Link title="Guide" href='/guide' className="copy_btn" >
             <RiGuideFill size={26}/>
           </Link>
-          <div title="Add to dashboard" className="copy_btn" onClick={handleAddToDashboard}>
-            <MdOutlineDashboardCustomize color="green" size={26} className="" />
-          </div>
+          {pathName === '/' && (
+            <div title="Add to dashboard" className="copy_btn" onClick={handleAddToDashboard}>
+              <MdOutlineDashboardCustomize color="green" size={26} className="" />
+            </div>
+          )}
+          
         </div>
         
       </div> 

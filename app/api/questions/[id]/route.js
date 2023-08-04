@@ -12,7 +12,6 @@ export const GET = async (req, ctx) => {
 
     const question = await Questions.findById(id)
 
-
     return new NextResponse(JSON.stringify(question), { status: 200 })
   } catch (error) {
     return new NextResponse("Failed to fetch question", { status: 500 })

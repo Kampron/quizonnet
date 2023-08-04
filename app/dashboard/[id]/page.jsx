@@ -1,12 +1,71 @@
 'use client'
 
+import PromptCard from '@/components/PromptCard'
 import { useSession } from 'next-auth/react'
-import React from 'react'
+import { notFound } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
-const Dashboard = () => {
-  const {data:session} = useSession()
+const Dashboard = (ctx) => {
+  const {data: session} = useSession()
+  const [ids, setIds] = useState([])
+  const [qtns, setQtns] = useState([])
+
+  const id = session?.user?.id
+
+  useEffect(() => {
+    async function getQtnIds() {
+      const res = await fetch(`/api/questions/user/userQtns/${ ctx.params.id }`, {
+      })
+    
+      if (!res.ok) {
+        return notFound
+      }
+    
+      const qtnIds = await res.json()
+      setIds(qtnIds)
+
+    }
+    getQtnIds()
+
+  
+    
+      async function getQuestion() {
+        const res = await fetch(`/api/questions`)
+
+        if (!res.ok) {
+          return notFound
+        }
+
+        const exam  = await res.json()
+
+        setQtns(exam)
+      }
+
+      getQuestion()
+    
+  }, [])
+
+
+  const userQtns = qtns.filter(qtn => ids.includes(qtn._id));
+
+  
   return (
-    <div>Sorry this page is still under construction🙏</div>
+    <section className='w-full'>
+      <h1 className='head_text text-left'> 
+        <span className='blue_gradient'>Your Dashboard</span>
+      </h1>
+      <p className='desc text-left font-poppins font-semibold'>Below are all the questions you added to your dashboard.<br /> Free to add more or delete unwanted questions</p>
+
+      <div className='mt-10 prompt_layout'>
+        {userQtns.map((qtn, index) => (
+          <PromptCard 
+            key={index}
+            post={qtn}
+          />
+          ))}  
+      </div>
+
+    </section>
   )
 }
 

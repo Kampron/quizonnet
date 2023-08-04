@@ -82,7 +82,7 @@ const Nav = () => {
                 </Link>
               </button>
 
-              <Link href={`/dashboard/${session.user.name}`}>
+              <Link href={`/dashboard/${session?.user.id}`}>
                 {session?.user.image ? (
                   <Image 
                     src={session?.user.image}
@@ -159,7 +159,7 @@ const Nav = () => {
                     className=" w-full outline_btn"
                   >
                     <Link
-                      href={`/dashboard/${session.user.name}`}
+                      href={`/dashboard/${session.user.id}`}
                       className="dropdown_link"
                       onClick={() => setToggleDropdown(false)}
                     >

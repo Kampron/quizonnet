@@ -4,6 +4,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
+import { use } from "react";
 
 
 const handler = NextAuth({
@@ -47,32 +48,23 @@ const handler = NextAuth({
     signOut: "/"
   },
 
-  callbacks: {
+  callbacks: {  
+    async session({ session }) {
+      const sessionUser = await User.findOne({
+        email: session.user.email
+      })
+  
+      session.user.id = sessionUser._id.toString()
+  
+      return session
+    },
 
-  async jwt({ token, account }) {
-    // Persist the OAuth access_token to the token right after signin
-    if (account) {
-      token.accessToken = account.access_token  
-    }
-    return token
-    
-  },
-  async session({ session, token, user }) {
-    // Send properties to the client, like an access_token from a provider.
-    session.accessToken = token.accessToken
-    return session
-  }
+
 }
-  // callbacks: {
-  //    async session({ session }) {
-  //   const sessionUser = await User.findOne({
-  //     email: session.user.email
-  //   })
-  //   session.user.id = sessionUser._id.toString() 
+  
+    
 
-  //   return session
-
-  // },
+  
 
   // async signIn({ account }) {
   //   try {

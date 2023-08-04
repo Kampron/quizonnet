@@ -15,6 +15,9 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
+    qtnIds: {
+        type: Array,
+    },
     image: {
       type: String,
     }
