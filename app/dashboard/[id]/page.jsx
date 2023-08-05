@@ -10,7 +10,6 @@ const Dashboard = (ctx) => {
   const [ids, setIds] = useState([])
   const [qtns, setQtns] = useState([])
 
-  const id = session?.user?.id
 
   useEffect(() => {
     async function getQtnIds() {
@@ -43,7 +42,7 @@ const Dashboard = (ctx) => {
 
       getQuestion()
     
-  }, [])
+  }, [ids])
 
 
   const userQtns = qtns.filter(qtn => ids.includes(qtn._id));

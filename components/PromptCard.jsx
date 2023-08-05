@@ -7,8 +7,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { FcDocument } from "react-icons/fc";
 import { PiExamDuotone } from "react-icons/pi";
 import { RiGuideFill } from "react-icons/ri";
-import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdOutlineDashboardCustomize, MdOutlineDeleteOutline } from "react-icons/md";
+
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 
 const bgcolor1 = 'w-10 h-10 bg-yellow-500 text-white text-lg font-quicksand p-2 font-bold rounded-full flex items-center justify-center'
 const bgcolor2 = 'w-10 h-10 bg-pink-500 text-white text-lg font-quicksand p-2 font-bold rounded-full flex items-center justify-center'
@@ -40,6 +42,29 @@ const PromptCard = ({ post }) => {
 
         if(response.ok) {
           console.log('added to dashboard')
+          toast.success('Added to dashboard')
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+
+  const handleDelete = async () => {
+    if(!session?.user) {
+      router.push('/login')
+    } else {
+      try {
+        const response = await fetch(`/api/questions/user/deleteId/${session?.user.id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            id: post._id
+          })
+        })
+
+        if(response.ok) {
+          console.log('deleted from dashboard')
+          toast.success('Deleted from dashboard')
         }
       } catch (error) {
         console.log(error)
@@ -98,7 +123,11 @@ const PromptCard = ({ post }) => {
               <MdOutlineDashboardCustomize color="green" size={26} className="" />
             </div>
           )}
-          
+          {pathName === `/dashboard/${session.user.id}` && (
+            <div title="Delete" className="copy_btn" onClick={handleDelete}>
+            <MdOutlineDeleteOutline color="red" size={26} className="" />
+          </div>
+          )}
         </div>
         
       </div> 

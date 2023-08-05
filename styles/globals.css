@@ -111,8 +111,8 @@
     @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
-.signin_btn {
-    @apply w-full p-3 cursor-pointer hover:bg-green-500 bg-green-400 border-none rounded-sm text-[#eee] font-bold text-sm sm:text-lg
+.signIn_btn {
+    @apply w-full p-3 cursor-pointer hover:bg-green-500 bg-gradient-to-r from-emerald-500 via-green-500 to-green-500 rounded-sm text-[#eee] font-bold text-sm sm:text-lg
 }
 .google_btn {
     @apply w-full p-3 cursor-pointer bg-red-400 hover:bg-red-500 border-none rounded-sm text-[#eee] font-bold text-sm sm:text-lg
@@ -181,7 +181,7 @@
 }
 
 .form_input {
-    @apply w-full rounded-md px-6 py-4 text-sm sm:text-lg text-gray-950 outline-0 font-quicksand font-semibold bg-gray-300;
+    @apply w-full rounded-md px-6 py-4 text-base sm:text-lg text-gray-950 outline-0 font-quicksand font-semibold bg-gray-300;
 }
 
 /* Nav Component */

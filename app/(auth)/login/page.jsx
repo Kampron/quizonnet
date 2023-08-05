@@ -88,15 +88,15 @@ const Login = () => {
           </span>
         </div>
         
-        <button className='signin_btn '>Sign in</button>
+        <button className='signIn_btn '>Sign in</button>
       </form>
 
-      <button 
+      {/* <button 
         className='google_btn'
         onClick={notify}
       > 
         Login with Google
-      </button>
+      </button> */}
       
       <Link className='blue_gradient font-extrabold' href="/register">
         Create new account
