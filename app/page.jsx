@@ -6,7 +6,8 @@ const Home = () => {
       <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
         Search & Access
-        <br className="max-md:hidden" />
+        {/* <br className="max-md:hidden" /> */}
+        <br />
         <span className="orange_gradient"> A Plethora Of Past Questions</span>
       </h1>
       <p className="desc text-center font-roboto">
