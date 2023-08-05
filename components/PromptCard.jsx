@@ -123,7 +123,7 @@ const PromptCard = ({ post }) => {
               <MdOutlineDashboardCustomize color="green" size={26} className="" />
             </div>
           )}
-          {pathName === `/dashboard/${session.user.id}` && (
+          {pathName === `/dashboard/${session?.user?.id}` && (
             <div title="Delete" className="copy_btn" onClick={handleDelete}>
             <MdOutlineDeleteOutline color="red" size={26} className="" />
           </div>
