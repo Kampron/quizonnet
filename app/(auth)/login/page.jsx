@@ -71,8 +71,8 @@ const Login = () => {
             required
             className='form_input'
           />
-        <span className='flex items-center px-4 mr-5'>    
-          <HiAtSymbol size={25} color='gray'/>
+        <span className='flex items-center px-1 mr-2'>    
+          <HiAtSymbol size={18} color='gray'/>
         </span>
         </div>
         
@@ -83,8 +83,8 @@ const Login = () => {
           required
           className='form_input'
           />
-          <span className='flex items-center px-4 mr-5 cursor-pointer' onClick={() => setShow(!show)}>    
-            <HiFingerPrint size={25} className='text-gray-500 hover:text-indigo-500'/>
+          <span className='flex items-center px-1 mr-2 cursor-pointer' onClick={() => setShow(!show)}>    
+            <HiFingerPrint size={18} className='text-gray-500 hover:text-indigo-500'/>
           </span>
         </div>
         

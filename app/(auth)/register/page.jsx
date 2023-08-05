@@ -126,8 +126,8 @@ const Register = () => {
               onBlur={() => setUserFocus(false)}
               className='form_input'
             />
-            <span className='flex items-center px-4 mr-5'>    
-            <HiOutlineUser size={25} color='gray'/>
+            <span className='flex items-center px-1 mr-2'>    
+            <HiOutlineUser size={18} color='gray'/>
           </span>
           </div>
        
@@ -151,8 +151,8 @@ const Register = () => {
             onBlur={() => setEmailFocus(false)}
             className='form_input'
           />
-          <span className='flex items-center px-4 mr-5'>    
-            <HiOutlineAtSymbol size={25} color='gray'/>
+          <span className='flex items-center px-1 mr-2'>    
+            <HiOutlineAtSymbol size={18} color='gray'/>
           </span>
         </div>
         
@@ -174,8 +174,8 @@ const Register = () => {
             onBlur={() => setPwdFocus(false)}
             className='form_input'
           />
-          <span className='flex items-center px-4 mr-5 cursor-pointer' onClick={() => setShow(!show)}>    
-            <HiOutlineFingerPrint size={25} className='text-gray-500 hover:text-indigo-500'/>
+          <span className='flex items-center px-1 mr-2 cursor-pointer' onClick={() => setShow(!show)}>    
+            <HiOutlineFingerPrint size={18} className='text-gray-500 hover:text-indigo-500'/>
           </span>
         </div>
         <p id="pwdnote" className={pwdFocus && !validPwd ? instructions : offscreen }>

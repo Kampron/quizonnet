@@ -2,11 +2,12 @@
 
 import PromptCard from '@/components/PromptCard'
 import { useSession } from 'next-auth/react'
-import { notFound } from 'next/navigation'
+import { notFound, redirect, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const Dashboard = (ctx) => {
-  const {data: session} = useSession()
+  const {data: session, status} = useSession()
+  const router = useRouter()
   const [ids, setIds] = useState([])
   const [qtns, setQtns] = useState([])
 
@@ -43,6 +44,8 @@ const Dashboard = (ctx) => {
       getQuestion()
     
   }, [ids])
+
+
 
 
   const userQtns = qtns.filter(qtn => ids.includes(qtn._id));

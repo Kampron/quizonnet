@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React from 'react'
 import {  useState } from "react";
 import { signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import useIdle from '@/hooks/useIdleTimer';
 
 
@@ -42,14 +42,14 @@ const links = [
 
 const Nav = () => {
   const { data: session } = useSession()
+  const router = useRouter()
   const [toggleDropdown, setToggleDropdown] = useState(false)
   const handleSignOut = () => {
     signOut()
-    router.push('/')
   }
   const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 30})
 
-  const router = useRouter()
+  
 
   
 
