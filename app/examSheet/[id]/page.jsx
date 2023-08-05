@@ -17,7 +17,7 @@ const ExamSheet = (ctx) => {
       const res = await fetch(`/api/questions/${ctx.params.id}`)
 
       if (!res.ok) {
-        return notFound()
+        return notFound
       }
 
       const exam = await res.json()
@@ -163,18 +163,21 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsA ? (
-                          <Box fontWeight='semibold' mb={-5} fontSize={['x-small', 'sm']}>
-                            <MathComponent tex={String.raw` 𝐀.${qtn.optionMathsA}`} />
+                          <Box 
+                            fontWeight='semibold' mb={-5} fontSize={['x-small', 'sm']}
+                            className={qtn.optionMathsA === qtn.answerMaths ? `font-quicksand text-sky-400` : `font-quicksand`}
+                          >
+                            <MathComponent tex={String.raw` 𝐀. ${qtn.optionMathsA}`} />
                           </Box>
                         ) : (
                           <Box className='flex justify-start'>
                             <Text 
-                              className='font-quicksand'  
+                              className={qtn.optionA === qtn.answer ? `font-quicksand text-sky-400` : `font-quicksand`}  
                               noOfLines={[3,2,1]}
                               fontWeight='semibold' 
                               fontSize={['x-small', 'sm']}
                             >
-                              𝐀.{qtn?.optionA}
+                              𝐀. {qtn?.optionA}
                             </Text>
                           </Box>    
                         )}
@@ -187,18 +190,21 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsB ? (
-                          <Box fontWeight='semibold' mb={-4} fontSize={['x-small', 'sm']}>
-                              <MathComponent tex={String.raw`𝐁.${qtn.optionMathsB}`} />
+                          <Box 
+                            fontWeight='semibold' mb={-4} fontSize={['x-small', 'sm']}
+                            className={qtn.optionMathsB === qtn.answerMaths ? `font-quicksand text-sky-400` : `font-quicksand`}
+                          >
+                              <MathComponent tex={String.raw`𝐁. ${qtn.optionMathsB}`} />
                             </Box>
                         ) : (
                         <Box className='flex justify-start'>
                           <Text 
-                            className='font-quicksand' 
+                            className={qtn.optionB === qtn.answer ? `font-quicksand text-sky-400` : `font-quicksand`}  
                             noOfLines={[3,2,1]} 
                             fontWeight='semibold' 
                             fontSize={['x-small', 'sm']}
                           >
-                            𝐁.{qtn?.optionB}
+                            𝐁. {qtn?.optionB}
                           </Text>
                         </Box>
                         )}
@@ -211,18 +217,21 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsC ? (
-                          <Box fontWeight='semibold' mb={-4} fontSize={['x-small', 'sm']}>
-                            <MathComponent tex={String.raw`𝐂.${qtn.optionMathsC}`} />
+                          <Box 
+                            fontWeight='semibold' mb={-4} fontSize={['x-small', 'sm']}
+                            className={qtn.optionMathsC === qtn.answerMaths ? `font-quicksand text-sky-400` : `font-quicksand`}
+                          >
+                            <MathComponent tex={String.raw`𝐂. ${qtn.optionMathsC}`} />
                           </Box>
                         ) : (
                           <Box className='flex justify-start'>
                             <Text 
-                              className='font-quicksand'  
+                              className={qtn.optionC === qtn.answer ? `font-quicksand text-sky-400` : `font-quicksand`} 
                               noOfLines={[3,2,1]}
                               fontWeight='semibold' 
                               fontSize={['x-small', 'sm']}
                             >
-                              𝐂.{qtn?.optionC}
+                              𝐂. {qtn?.optionC}
                             </Text>
                           </Box>
                         )}
@@ -235,19 +244,22 @@ const ExamSheet = (ctx) => {
                     ) : (
                       <>
                         {qtn.optionMathsD ? (
-                          <Box fontWeight='semibold' mb={3} fontSize={['x-small', 'sm']}>
-                            <MathComponent tex={String.raw`𝐃.${qtn.optionMathsD}`} />
+                          <Box 
+                            fontWeight='semibold' mb={3} fontSize={['x-small', 'sm']}
+                            className={qtn.optionMathsD === qtn.answerMaths ? `font-quicksand text-sky-400` : `font-quicksand`}
+                          >
+                            <MathComponent tex={String.raw`𝐃. ${qtn.optionMathsD}`} />
                           </Box>
                         ) : (
                           <Box className='flex justify-start'>
                             <Text 
-                              className='font-quicksand'  
+                              className={qtn.optionD === qtn.answer ? `font-quicksand text-sky-400` : `font-quicksand`}   
                               noOfLines={[3,2,1]}
                               fontWeight='semibold' 
                               mb={3}
                               fontSize={['x-small', 'sm']}
                             >
-                              𝐃.{qtn?.optionD}
+                              𝐃. {qtn?.optionD}
                             </Text>
                           </Box>
                         )}
