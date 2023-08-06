@@ -46,6 +46,8 @@ const handler = NextAuth({
     
   },
 
+  
+
   callbacks: {  
 
     async jwt({ token, account }) {
@@ -71,6 +73,8 @@ const handler = NextAuth({
 
       return session
     },
+
+    
 
 
     // async signIn({ profile }) {

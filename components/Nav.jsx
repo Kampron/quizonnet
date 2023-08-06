@@ -45,8 +45,13 @@ const Nav = () => {
   const router = useRouter()
   const [toggleDropdown, setToggleDropdown] = useState(false)
   const handleSignOut = () => {
-    signOut()
+    if (window.confirm('Are you sure you want to sign out')) {
+      signOut({
+        callbackUrl: `${window.location.origin}`})
+      router.push('/')
+   }  
   }
+
   const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 30})
 
   
