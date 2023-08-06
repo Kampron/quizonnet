@@ -41,10 +41,12 @@ const Feed = () => {
 
 
   const filterPrompts = (searchText) => {
-    const regex = new RegExp(searchText, "i"); // 'i' flag for case-insensitive search
+    const regexPattern = searchText.replace(/\s+/g, "").trim(); // Remove whitespace from the pattern
+    const regex = new RegExp(regexPattern, "i"); // 'i' flag for case-insensitive search
     return posts.filter(
       (item) => 
-        regex.test(item.subject) ||
+        regex.test(item.search)  ||
+        regex.test(item.subject)  ||
         regex.test(item.month) ||
         regex.test(item.year)  ||
         regex.test(item.type)  

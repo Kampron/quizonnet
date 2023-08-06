@@ -20,6 +20,9 @@ const UserSchema = new Schema({
     },
     image: {
       type: String,
+    },
+    search: {
+      type: String,
     }
   },
   { timestamps: true }
