@@ -17,6 +17,7 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
+    "escape-string-regexp": "^5.0.0",
     "framer-motion": "^10.12.18",
     "mathjax-react": "^2.0.1",
     "mathlive": "^0.95.1",

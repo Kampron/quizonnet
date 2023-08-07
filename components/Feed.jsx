@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 
 import PromptCard from "./PromptCard";
+import escapeStringRegexp from 'escape-string-regexp';
 
 const PromptCardList = ({ data }) => {
   return (
@@ -40,31 +41,39 @@ const Feed = () => {
   }, [])
 
 
-  const filterPrompts = (searchText) => {
-    const regexPattern = searchText.replace(/\s+/g, "").trim(); // Remove whitespace from the pattern
-    const regex = new RegExp(regexPattern, "i"); // 'i' flag for case-insensitive search
-    return posts.filter(
-      (item) => 
-        regex.test(item.search)  ||
-        regex.test(item.subject)  ||
-        regex.test(item.month) ||
-        regex.test(item.year)  ||
-        regex.test(item.type)  
 
-    )
-  }
+    const filterPrompts = (searchText) => {
+      const regexPatterns = searchText.split(/\s+/).map((word) => {
+        const escapedWord = escapeStringRegexp(word);
+        return `(?=.*${escapedWord})`;
+      });
+      const regexPattern = `^${regexPatterns.join("")}`;
 
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value)
+      const regex = new RegExp(regexPattern, "i"); // 'i' flag for case-insensitive search
+      return posts.filter(
+        (item) =>
+          regex.test(item.search) ||
+          regex.test(item.subject) ||
+          regex.test(item.month) ||
+          regex.test(item.year) ||
+          regex.test(item.type)
+      );
+    };
 
-    // debounce method
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResult = filterPrompts(e.target.value)
-        setSearchedResults(searchResult)
-      }, 500)
-    )
-  }
+
+
+
+    const handleSearchChange = (e) => {
+      setSearchText(e.target.value)
+
+      // debounce method
+      setSearchTimeout(
+        setTimeout(() => {
+          const searchResult = filterPrompts(e.target.value)
+          setSearchedResults(searchResult)
+        }, 500)
+      )
+    }
 
 //  const handleTagClick = (tagName) => {
 //     setSearchText(tagName)
