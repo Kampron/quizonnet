@@ -444,17 +444,17 @@ const HardMode = (ctx) => {
               </>
               <Box  fontSize={['xs', 'sm']}>
                 <VStack>
-                  <Heading align={'center'}>{data.subject.toUpperCase()}</Heading>
+                  <Heading fontSize={['xs', 'lg']} align={'center'}>{data.subject.toUpperCase()}</Heading>
                   <Text>OBJECTIVE TEST</Text><Text>{data.type} {data.month} {data.year}</Text>
-                  <Heading size={'md'} align={'center'}>{data.questions[currentQn].part}</Heading>
-                  <Heading size={'md'} align={'center'}>{data.questions[currentQn].label}</Heading>
+                  <Heading fontSize={['xs', 'sm']} align={'center'}>{data.questions[currentQn].part}</Heading>
+                  <Heading fontSize={['xs', 'sm']} align={'center'}>{data.questions[currentQn].label}</Heading>
                 </VStack>
                 <Flex alignItems={'center'}>
                   <Text>{currentQn + 1} of {data.questions.length}</Text>
                   <Spacer />
                   <Timer setShowFinalScore={setShowFinalScore} isPlaying={isPlaying}/>
                 </Flex>
-                <Heading size="md" align={'center'} mb={3}>{data.questions[currentQn].section}</Heading>
+                <Heading fontSize={['xs', 'md']} align={'center'} mb={3}>{data.questions[currentQn].section}</Heading>
                 <Text align={'center'} m={5}>{data.questions[currentQn].instructions}</Text>
               </Box>
               <Box  fontSize={['xs', 'sm']}>

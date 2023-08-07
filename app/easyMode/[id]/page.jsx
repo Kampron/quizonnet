@@ -259,17 +259,17 @@ const EasyMode = (ctx) => {
               </Box>
               <Box fontSize={['xs', 'sm']} mt={10}>
                 <VStack>
-                    <Heading align={'center'}  fontSize={['xs', 'sm']}>{data.subject.toUpperCase()}</Heading>
+                    <Heading align={'center'}  fontSize={['xs', 'lg']}>{data.subject.toUpperCase()}</Heading>
                     <Text  fontSize={['xs', 'sm']}>OBJECTIVE TEST REVIEW</Text>
                     <Text  fontSize={['xs', 'sm']}>{data.type} {data.month} {data.year} </Text>
                   </VStack>
                   <Box>
                     {data.sheet.map((qtn, index) => (
                       <Box key={index}>
-                        <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.part}</Heading>
-                        <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
-                        <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.section}</Heading>
-                        <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.instructions}</Heading>
+                        <Heading  align={'center'} fontSize={['x-small', 'sm']}>{qtn.part}</Heading>
+                        <Heading  align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
+                        <Heading  align={'center'} my={3} fontSize={['x-small', 'md']}>{qtn.section}</Heading>
+                        <Heading  align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.instructions}</Heading>
                         <Box>
                         {qtn.mathsInstructions && (
                           <Box className='flex justify-center' mt={2}  fontSize={['x-small', 'sm']}>
@@ -492,18 +492,18 @@ const EasyMode = (ctx) => {
             <>
               <Box>
                 <VStack>
-                  <Heading align={'center'}  fontSize={['xs', 'sm']}>{data.subject.toUpperCase()}</Heading>
+                  <Heading align={'center'}  fontSize={['xs', 'lg']}>{data.subject.toUpperCase()}</Heading>
                   <Text  fontSize={['xs', 'sm']}>OBJECTIVE TEST</Text>
                   <Text  fontSize={['xs', 'sm']}>{data.type} {data.month} {data.year} </Text>
-                  <Heading size={'md'} align={'center'}  fontSize={['xs', 'sm']}>{question?.part}</Heading>
-                  <Heading size={'md'} align={'center'}  fontSize={['xs', 'sm']}>{question?.label}</Heading>
+                  <Heading  align={'center'}  fontSize={['xs', 'sm']}>{question?.part}</Heading>
+                  <Heading  align={'center'}  fontSize={['xs', 'sm']}>{question?.label}</Heading>
                 </VStack>
                 <Flex alignItems={'center'}>
                   <Text  fontSize={['xs', 'sm']}>{track} of {data.questions.length}</Text>
                   <Spacer />
                   <Timer setShowFinalScore={setShowFinalScore} isPlaying={isPlaying} />
                 </Flex>
-                <Heading  size='md' align={'center'} mb={3}>{question?.section}</Heading>
+                <Heading   align={'center'} mb={3} fontSize={['xs', 'md']}>{question?.section}</Heading>
                 <Text align={'center'}  fontSize={['xs', 'sm']} m={5}>{question?.instructions}</Text>
               </Box>
               <Box>

@@ -34,7 +34,7 @@ const Quiz = (ctx) => {
   
 
 
-  if(status === "authenticated") {
+
     useEffect(() => {
       async function getQuestions() {
         const res = await fetch(`/api/questions/${ctx.params.id}`, {
@@ -50,9 +50,7 @@ const Quiz = (ctx) => {
       }
       getQuestions()
     }, [])
-  } else {
-    router.push('/login')
-  }
+
   
 
   // const toastLoading = toast('Please sign in first', {
@@ -87,17 +85,18 @@ const Quiz = (ctx) => {
             <>
               <Box fontSize={['xs', 'sm']}>
                 <VStack>
-                  <Heading align={'center'}>{data.subject.toUpperCase()}</Heading>
+                  <Heading align={'center'}fontSize={['xs', 'lg']} >{data.subject.toUpperCase()}</Heading>
                   <Text>OBJECTIVE TEST</Text>
-                  <Text>{data.type} {data.month} {data.year}</Text>
-                  <Heading size={'md'} align={'center'}>{data.questions[0].part}</Heading>
+                  <Text fontSize={['xs', 'sm']}>{data.type} {data.month} {data.year}</Text>
+                  <Heading fontSize={['xs', 'sm']} align={'center'}>{data.questions[0].part}</Heading>
+                  <Heading size={'md'} align={'center'} fontSize={['xs', 'sm']}>{data.questions[0].label}</Heading>
                 </VStack>
                 <Flex alignItems={'center'}>
-                  <Text>1 of {data.questions.length}</Text>
+                  <Text fontWeight={'semibold'}>1 of {data.questions.length}</Text>
                   <Spacer />
                   <Timer />
                 </Flex>
-                <Heading size="md" align={'center'} mb={3}>{data.questions[0].section}</Heading>
+                <Heading fontSize={['xs', 'md']} align={'center'} mb={3}>{data.questions[0].section}</Heading>
                 <Text align={'center'} m={5}>{data.questions[0].instructions}</Text>
               </Box>
               <Box>
@@ -157,19 +156,19 @@ const Quiz = (ctx) => {
                 </>
               ) : (
                 <>
-                  <Box>
+                  <Box fontSize={['xs', 'sm']}>
                     <VStack>
-                      <Heading align={'center'}>{data.subject.toUpperCase()}</Heading>
-                      <Text>OBJECTIVE TEST</Text><Text>{data.type} {data.month} {data.year}</Text>
-                      <Heading size={'md'} align={'center'}>{data.questions[0].part}</Heading>
-                      <Heading size={'md'} align={'center'}>{data.questions[0].label}</Heading>
+                      <Heading align={'center'}fontSize={['xs', 'lg']}>{data.subject.toUpperCase()}</Heading>
+                      <Text fontSize={['xs', 'sm']}>OBJECTIVE TEST</Text><Text>{data.type} {data.month} {data.year}</Text>
+                      <Heading fontSize={['xs', 'sm']} align={'center'}>{data.questions[0].part}</Heading>
+                      <Heading fontSize={['xs', 'sm']} align={'center'}>{data.questions[0].label}</Heading>
                     </VStack>
                     <Flex alignItems={'center'}>
                       <Text>1 of {data.questions.length}</Text>
                       <Spacer />
                       <Timer />
                     </Flex>
-                    <Heading size="md" align={'center'} mb={3}>{data.questions[0].section}</Heading>
+                    <Heading fontSize={['xs', 'md']} align={'center'} mb={3}>{data.questions[0].section}</Heading>
                     <Text align={'center'} m={5}>{data.questions[0].instructions}</Text>
                   </Box>
                   <Box>
