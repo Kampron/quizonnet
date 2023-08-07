@@ -60,6 +60,7 @@ const ExamSheet = (ctx) => {
                 <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.part}</Heading>
                 <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
                 <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.section}</Heading>
+                <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.instructions}</Heading>
                 <Box>
                   {qtn.mathsInstructions && (
                     <Box className='flex justify-center' mt={2}  fontSize={['x-small', 'sm']}>
@@ -69,7 +70,7 @@ const ExamSheet = (ctx) => {
                 </Box>
                 <Box fontSize={['x-small', 'sm']} align='center' fontWeight={'semibold'}>
                   {qtn.img ? (
-                    <Box my={3}>
+                    <Box my={8}>
                       <Text  mb={'2'}>
                         {qtn.question}
                       </Text>
@@ -96,7 +97,7 @@ const ExamSheet = (ctx) => {
                     ) : (
                     <>
                       {qtn.mathsQuestion ? (
-                        <Box my={3}>
+                        <Box my={5}>
                           <Text mb={'2'} className='flex justify-start'>
                             {qtn.sub1}
                           </Text>
@@ -124,7 +125,7 @@ const ExamSheet = (ctx) => {
                           </Text>
                         </Box>
                       ) : (
-                        <Box my={3}>
+                        <Box my={10}>
                           <Text  mb={'3'} >
                               {qtn.sub1}
                           </Text>
@@ -143,12 +144,12 @@ const ExamSheet = (ctx) => {
                           <Text  mb={'3'}>
                               {qtn.sub6}
                           </Text>
-                          <Box className='flex justify-start' align={'center'}>
+                          <Box className='flex justify-start' align={'center'} mb={3}>
                             <Text  className='flex justify-start'  noOfLines={[3,2,1]} >
                               {qtn.question}
                             </Text>
                           </Box>
-                          <Text  className='flex justify-start'>
+                          <Text  mb={-8}  className='flex justify-start'>
                             {qtn.num}
                           </Text>
                         </Box>

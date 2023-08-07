@@ -217,6 +217,7 @@ const HardMode = (ctx) => {
                         <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.part}</Heading>
                         <Heading size={'md'} align={'center'} fontSize={['x-small', 'sm']}>{qtn.label}</Heading>
                         <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.section}</Heading>
+                        <Heading size="md" align={'center'} mb={3} fontSize={['x-small', 'sm']}>{qtn.instructions}</Heading>
                         <Box>
                         {qtn.mathsInstructions && (
                           <Box className='flex justify-center' mt={2}  fontSize={['x-small', 'sm']}>
