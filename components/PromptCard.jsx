@@ -80,6 +80,7 @@ const PromptCard = ({ post }) => {
             className={(
               post.subject === "English Language" && bgcolor1 ||
               post.subject === "Mathematics" && bgcolor2 ||
+              post.subject === "Mathematics Core" && bgcolor2 ||
               post.subject === "Social Studies" && bgcolor3 ||
               post.subject === "Integrated Science" && bgcolor4
 
