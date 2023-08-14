@@ -653,8 +653,8 @@ const EasyMode = (ctx) => {
                               >
                                 𝐀. 
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width="250"
+                                  height="150"
                                   src={qtn.optionimgA}
                                   alt="questionImg"
                                 />
@@ -706,8 +706,8 @@ const EasyMode = (ctx) => {
                               >
                                 𝐁.  
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width="250"
+                                  height="150"
                                   src={qtn.optionimgB}
                                   alt="questionImg"
                                 />
@@ -759,8 +759,8 @@ const EasyMode = (ctx) => {
                               >
                                 𝐂.  
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width="250"
+                                  height="150"
                                   src={qtn.optionimgC}
                                   alt="questionImg"
                                 />
@@ -812,8 +812,8 @@ const EasyMode = (ctx) => {
                               >
                                 𝐃.  
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width="250"
+                                  height="150"
                                   src={qtn.optionimgD}
                                   alt="questionImg"
                                 />
@@ -918,8 +918,10 @@ const EasyMode = (ctx) => {
                         {question.sub2}
                       </Text>
                       <CldImage
-                        width="350"
-                        height="150"
+                        width={question.imgWidth ? `${question.imgWidth}` : 300}
+                        height={
+                          question.imgHeight ? `${question.imgHeight}` : 100
+                        }
                         src={question.img}
                         alt="questionImage"
                       />
@@ -1012,7 +1014,7 @@ const EasyMode = (ctx) => {
                     </Box>
                   ) : (
                     <>
-                      {question.mathsQuestion ? (
+                      {question.mathsQuestion || question.mathsQuestion1 ? (
                         <Box fontSize={['xs', 'sm']}>
                           <Text
                             align={'center'}
@@ -1032,13 +1034,17 @@ const EasyMode = (ctx) => {
                           >
                             {question.sub2}
                           </Text>
-                          <Box
-                            className="flex justify-center"
-                            fontSize={['xs', 'sm']}
-                          >
-                            <MathComponent
-                              tex={String.raw`${question.mathsQuestion}`}
-                            />
+                          <Box>
+                            {question.mathsQuestion && (
+                              <Box
+                                className="flex justify-center"
+                                fontSize={['xs', 'sm']}
+                              >
+                                <MathComponent
+                                  tex={String.raw`${question.mathsQuestion}`}
+                                />
+                              </Box>
+                            )}
                           </Box>
                           <Box>
                             {question.mathsQuestion1 && (
@@ -1203,12 +1209,17 @@ const EasyMode = (ctx) => {
                           size="lg"
                           borderColor="black"
                           colorScheme="green"
+                          className="flex items-center"
                           value={question?.optionimgA}
                         >
                           𝐀.{' '}
                           <CldImage
-                            width="550"
-                            height="300"
+                            width={
+                              question.imgWidth ? `${question.imgWidth}` : 350
+                            }
+                            height={
+                              question.imgHeight ? `${question.imgHeight}` : 100
+                            }
                             src={question?.optionimgA}
                             alt="optionimgA"
                           />
@@ -1252,8 +1263,12 @@ const EasyMode = (ctx) => {
                         >
                           𝐁.{' '}
                           <CldImage
-                            width="550"
-                            height="300"
+                            width={
+                              question.imgWidth ? `${question.imgWidth}` : 350
+                            }
+                            height={
+                              question.imgHeight ? `${question.imgHeight}` : 100
+                            }
                             src={question?.optionimgB}
                             alt="optionimgB"
                           />
@@ -1297,8 +1312,12 @@ const EasyMode = (ctx) => {
                         >
                           𝐂.{' '}
                           <CldImage
-                            width="550"
-                            height="300"
+                            width={
+                              question.imgWidth ? `${question.imgWidth}` : 350
+                            }
+                            height={
+                              question.imgHeight ? `${question.imgHeight}` : 100
+                            }
                             src={question?.optionimgC}
                             alt="optionimgC"
                           />
@@ -1342,8 +1361,12 @@ const EasyMode = (ctx) => {
                         >
                           𝐃.{' '}
                           <CldImage
-                            width="550"
-                            height="300"
+                            width={
+                              question.imgWidth ? `${question.imgWidth}` : 350
+                            }
+                            height={
+                              question.imgHeight ? `${question.imgHeight}` : 100
+                            }
                             src={question?.optionimgD}
                             alt="optionimgD"
                           />

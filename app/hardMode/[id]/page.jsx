@@ -316,8 +316,16 @@ const HardMode = (ctx) => {
                                 {qtn.sub2}
                               </Text>
                               <CldImage
-                                width="350"
-                                height="150"
+                                width={
+                                  data.questions[currentQn].imgWidth
+                                    ? `${data.questions[currentQn].imgWidth}`
+                                    : 300
+                                }
+                                height={
+                                  data.questions[currentQn].imgHeight
+                                    ? `${data.questions[currentQn].imgHeight}`
+                                    : 100
+                                }
                                 src={qtn.img}
                                 alt="questionImage"
                               />
@@ -572,8 +580,10 @@ const HardMode = (ctx) => {
                               >
                                 𝐀. 
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                                  height={
+                                    qtn.imgHeight ? `${qtn.imgHeight}` : 100
+                                  }
                                   src={qtn.optionimgA}
                                   alt="questionImg"
                                 />
@@ -625,8 +635,10 @@ const HardMode = (ctx) => {
                               >
                                 𝐁.  
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                                  height={
+                                    qtn.imgHeight ? `${qtn.imgHeight}` : 100
+                                  }
                                   src={qtn.optionimgB}
                                   alt="questionImg"
                                 />
@@ -678,8 +690,10 @@ const HardMode = (ctx) => {
                               >
                                 𝐂.  
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                                  height={
+                                    qtn.imgHeight ? `${qtn.imgHeight}` : 100
+                                  }
                                   src={qtn.optionimgC}
                                   alt="questionImg"
                                 />
@@ -731,8 +745,10 @@ const HardMode = (ctx) => {
                               >
                                 𝐃.  
                                 <CldImage
-                                  width="550"
-                                  height="300"
+                                  width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                                  height={
+                                    qtn.imgHeight ? `${qtn.imgHeight}` : 100
+                                  }
                                   src={qtn.optionimgD}
                                   alt="questionImg"
                                 />
@@ -828,13 +844,6 @@ const HardMode = (ctx) => {
                   {data.questions[currentQn].img ? (
                     <>
                       <Text
-                        fontWeight={'semibold'}
-                        fontSize={['xs', 'sm']}
-                        mb={'2'}
-                      >
-                        {data.questions[currentQn].question}
-                      </Text>
-                      <Text
                         align={'center'}
                         fontWeight={'semibold'}
                         fontSize={['xs', 'sm']}
@@ -851,8 +860,16 @@ const HardMode = (ctx) => {
                         {data.questions[currentQn].sub2}
                       </Text>
                       <CldImage
-                        width="550"
-                        height="300"
+                        width={
+                          data.questions[currentQn].imgWidth
+                            ? `${data.questions[currentQn].imgWidth}`
+                            : 300
+                        }
+                        height={
+                          data.questions[currentQn].imgHeight
+                            ? `${data.questions[currentQn].imgHeight}`
+                            : 100
+                        }
                         src={data.questions[currentQn].img}
                         alt="questionImage"
                       />
@@ -1127,18 +1144,26 @@ const HardMode = (ctx) => {
                             data.questions[currentQn].optionimgA
                           )
                         }
-                        className="font-quicksand "
+                        className="font-quicksand flex justify-center items-center"
                         as="button"
                         maxW="lg"
-                        height="60px"
+                        height="120px"
                         borderRadius="5px"
                         bg={'gray.100'}
                         color={'gray.900'}
                         _hover={{ bg: 'gray.200' }}
                       >
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={
+                            data.questions[currentQn].imgWidth
+                              ? `${data.questions[currentQn].imgWidth}`
+                              : 350
+                          }
+                          height={
+                            data.questions[currentQn].imgHeight
+                              ? `${data.questions[currentQn].imgHeight}`
+                              : 100
+                          }
                           src={data.questions[currentQn].optionimgA}
                           alt="optionimgA"
                         />
@@ -1152,7 +1177,7 @@ const HardMode = (ctx) => {
                                 data.questions[currentQn].optionMathsA
                               )
                             }
-                            className="font-quicksand flex justify-center"
+                            className="font-quicksand flex justify-center items-center"
                             as="button"
                             maxW="lg"
                             height="55px"
@@ -1199,18 +1224,26 @@ const HardMode = (ctx) => {
                             data.questions[currentQn].optionimgB
                           )
                         }
-                        className="font-quicksand"
+                        className="font-quicksand flex justify-center items-center"
                         as="button"
                         maxW="lg"
-                        height="60px"
+                        height="120px"
                         borderRadius="5px"
                         bg={'gray.100'}
                         color={'gray.900'}
                         _hover={{ bg: 'gray.200' }}
                       >
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={
+                            data.questions[currentQn].imgWidth
+                              ? `${data.questions[currentQn].imgWidth}`
+                              : 350
+                          }
+                          height={
+                            data.questions[currentQn].imgHeight
+                              ? `${data.questions[currentQn].imgHeight}`
+                              : 100
+                          }
                           src={data.questions[currentQn].optionimgB}
                           alt="optionimgB"
                         />
@@ -1242,7 +1275,7 @@ const HardMode = (ctx) => {
                         ) : (
                           <Box
                             onClick={handleOptionClick}
-                            className="font-quicksand "
+                            className="font-quicksand flex justify-center "
                             as="button"
                             maxW="lg"
                             height="40px"
@@ -1271,18 +1304,28 @@ const HardMode = (ctx) => {
                             data.questions[currentQn].optionimgC
                           )
                         }
-                        className="font-quicksand "
+                        className="font-quicksand flex justify-center items-center"
                         as="button"
                         maxW="lg"
-                        height="60px"
+                        height="120px"
                         borderRadius="5px"
                         bg={'gray.100'}
                         color={'gray.900'}
                         _hover={{ bg: 'gray.200' }}
+                        objectFit={'contain'}
                       >
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={
+                            data.questions[currentQn].imgWidth
+                              ? `${data.questions[currentQn].imgWidth}`
+                              : 350
+                          }
+                          height={
+                            data.questions[currentQn].imgHeight
+                              ? `${data.questions[currentQn].imgHeight}`
+                              : 100
+                          }
+                          className="object-contain"
                           src={data.questions[currentQn].optionimgC}
                         />
                       </Box>
@@ -1295,7 +1338,7 @@ const HardMode = (ctx) => {
                                 data.questions[currentQn].optionMathsC
                               )
                             }
-                            className="font-quicksand flex justify-center"
+                            className="font-quicksand flex justify-center  "
                             as="button"
                             maxW="lg"
                             height="55px"
@@ -1342,18 +1385,26 @@ const HardMode = (ctx) => {
                             data.questions[currentQn].optionimgD
                           )
                         }
-                        className="font-quicksand "
+                        className="font-quicksand flex justify-center items-center"
                         as="button"
                         maxW="lg"
-                        height="60px"
+                        height="120px"
                         borderRadius="5px"
                         bg={'gray.100'}
                         color={'gray.900'}
                         _hover={{ bg: 'gray.200' }}
                       >
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={
+                            data.questions[currentQn].imgWidth
+                              ? `${data.questions[currentQn].imgWidth}`
+                              : 350
+                          }
+                          height={
+                            data.questions[currentQn].imgHeight
+                              ? `${data.questions[currentQn].imgHeight}`
+                              : 100
+                          }
                           src={data.questions[currentQn].optionimgD}
                         />
                       </Box>

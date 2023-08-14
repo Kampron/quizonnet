@@ -142,8 +142,8 @@ const ExamSheet = (ctx) => {
                         {qtn.sub2}
                       </Text>
                       <CldImage
-                        width="350"
-                        height="150"
+                        width={qtn.imgWidth ? `${qtn.imgWidth}` : 250}
+                        height={qtn.imgHeight ? `${qtn.imgHeight}` : 100}
                         src={qtn.img}
                         alt="questionImage"
                       />
@@ -410,8 +410,8 @@ const ExamSheet = (ctx) => {
                       >
                         𝐀. 
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                          height={qtn.imgHeight ? `${qtn.imgHeight}` : 100}
                           src={qtn.optionimgA}
                           alt="questionImg"
                         />
@@ -463,8 +463,8 @@ const ExamSheet = (ctx) => {
                       >
                         𝐁.  
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                          height={qtn.imgHeight ? `${qtn.imgHeight}` : 100}
                           src={qtn.optionimgB}
                           alt="questionImg"
                         />
@@ -516,8 +516,8 @@ const ExamSheet = (ctx) => {
                       >
                         𝐂.  
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                          height={qtn.imgHeight ? `${qtn.imgHeight}` : 100}
                           src={qtn.optionimgC}
                           alt="questionImg"
                         />
@@ -569,8 +569,8 @@ const ExamSheet = (ctx) => {
                       >
                         𝐃.  
                         <CldImage
-                          width="550"
-                          height="300"
+                          width={qtn.imgWidth ? `${qtn.imgWidth}` : 350}
+                          height={qtn.imgHeight ? `${qtn.imgHeight}` : 100}
                           src={qtn.optionimgD}
                           alt="questionImg"
                         />
