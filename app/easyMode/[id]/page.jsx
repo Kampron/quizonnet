@@ -385,8 +385,10 @@ const EasyMode = (ctx) => {
                                 {qtn.sub2}
                               </Text>
                               <CldImage
-                                width="350"
-                                height="150"
+                                width={qtn.imgWidth ? `${qtn.imgWidth}` : 300}
+                                height={
+                                  qtn.imgHeight ? `${qtn.imgHeight}` : 100
+                                }
                                 src={qtn.img}
                                 alt="questionImage"
                               />

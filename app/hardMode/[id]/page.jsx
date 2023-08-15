@@ -140,7 +140,7 @@ const HardMode = (ctx) => {
 
   let remarks = '';
 
-  const percentScore = Math.floor((scores / data?.questions.length) * 100);
+  const percentScore = Math.round((scores / data?.questions.length) * 100);
 
   if (percentScore <= 30) {
     remarks = 'You need more practice';
