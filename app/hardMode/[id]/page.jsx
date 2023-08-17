@@ -319,7 +319,7 @@ const HardMode = (ctx) => {
                                 width={
                                   data.questions[currentQn].imgWidth
                                     ? `${data.questions[currentQn].imgWidth}`
-                                    : 300
+                                    : 250
                                 }
                                 height={
                                   data.questions[currentQn].imgHeight
