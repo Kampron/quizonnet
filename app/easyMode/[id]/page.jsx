@@ -56,6 +56,7 @@ import { MathComponent } from 'mathjax-react';
 import { CldImage } from 'next-cloudinary';
 import { MdOutlineTipsAndUpdates } from 'react-icons/md';
 import { useSession } from 'next-auth/react';
+import axios from 'axios';
 
 const EasyMode = (ctx) => {
   const router = useRouter();
@@ -87,34 +88,36 @@ const EasyMode = (ctx) => {
   useEffect(() => {
     setGetData((prev) => ({ ...prev, isLoading: true }));
 
-    (async () => {
+    // Assuming this function is defined in a component or context
+    const fetchData = async () => {
       try {
-        const res = await fetch(`/api/questions/${ctx.params.id}`);
+        const response = await axios.get(`/api/questions/${ctx.params.id}`);
 
-        if (!res.ok) {
-          return notFound();
-        }
+        if (response.status === 200) {
+          const exam = response.data;
+          setData(exam);
 
-        const exam = await res.json();
-        setData(exam);
+          const questions = exam.questions;
 
-        const questions = await exam.questions;
-
-        if (questions.length > 0) {
-          // setGetData(prev => ({...prev, isLoading : false}))
-          // setGetData(prev => ({...prev, apiData : questions}))
-          // console.log(questions)
-
-          /** dispatch an action */
-          dispatch(Action.startExamAction(questions));
+          if (questions.length > 0) {
+            dispatch(Action.startExamAction(questions));
+          } else {
+            throw new Error('No Question Available');
+          }
         } else {
-          throw new Error('No Question Available');
+          throw new Error('API Error');
         }
       } catch (error) {
-        setGetData((prev) => ({ ...prev, isLoading: false }));
-        setGetData((prev) => ({ ...prev, serverError: error }));
+        setGetData((prev) => ({
+          ...prev,
+          isLoading: false,
+          serverError: error,
+        }));
       }
-    })();
+    };
+
+    // Call the fetchData function
+    fetchData();
   }, [dispatch]);
 
   const result = useSelector((state) => state.result.result);

@@ -27,21 +27,27 @@ import { CldImage, CldOgImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { notFound, useRouter } from 'next/navigation';
 import { MathComponent } from 'mathjax-react';
+import axios from 'axios';
 
 const ExamSheet = (ctx) => {
   const [data, setData] = useState();
 
   useEffect(() => {
     async function getQuestions() {
-      const res = await fetch(`/api/questions/${ctx.params.id}`);
+      try {
+        const response = await axios.get(`/api/questions/${ctx.params.id}`);
 
-      if (!res.ok) {
-        return notFound;
+        if (response.status !== 200) {
+          return notFound;
+        }
+
+        const exam = response.data;
+        setData(exam); // Assuming setData is defined elsewhere
+      } catch (error) {
+        console.error(error);
       }
-
-      const exam = await res.json();
-      setData(exam);
     }
+
     getQuestions();
   }, []);
 
