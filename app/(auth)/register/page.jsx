@@ -13,6 +13,7 @@ import {
   HiOutlineAtSymbol,
   HiOutlineUser,
 } from 'react-icons/hi';
+import axios from 'axios';
 
 const instructions =
   'text-[0.7rem] rounded-[0.5rem] bg-[#000] text-[#fff] p-[0.25rem] relative bottom-[-10px]';
