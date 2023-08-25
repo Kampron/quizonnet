@@ -43,7 +43,6 @@ export const authOptions = {
   ],
   pages: {
     signIn: '/login',
-    error: '/errors',
   },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
