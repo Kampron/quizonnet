@@ -13,7 +13,7 @@ import {
   HiOutlineAtSymbol,
   HiOutlineUser,
 } from 'react-icons/hi';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const instructions =
   'text-[0.7rem] rounded-[0.5rem] bg-[#000] text-[#fff] p-[0.25rem] relative bottom-[-10px]';
@@ -73,35 +73,70 @@ const Register = () => {
 
     const toastLoading = toast.loading('Loading...'); // Display loading toast
 
-    try {
-      const response = await axios.post(
-        '/api/auth/register',
-        {
-          username,
-          email,
-          password,
+    const postData = {
+      username,
+      email,
+      password,
+    };
+
+    axios
+      .post('/api/auth/register', postData, {
+        headers: {
+          'Content-Type': 'application/json',
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+        toastLoading,
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          toast.success('Account created successfully', {
+            duration: 3000,
+            id: toastLoading,
+          });
+          toast('Check your email to complete registration', {
+            icon: '📧',
+            duration: 5000,
+          });
+          router.push('/login?success=Account has been created');
         }
-      );
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 501) {
+          toast.error(error.response.data, { id: toastLoading });
+        } else {
+          console.error('Error:', error.message);
+        }
+      });
+    //   try {
+    //     const response = await axios.post(
+    //       '/api/auth/register',
+    //       {
+    //         username,
+    //         email,
+    //         password,
+    //       },
+    //       {
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //       }
+    //     );
 
-      toastLoading;
+    //     toastLoading;
 
-      if (response.status === 501) {
-        toast.error('Email already registered', { id: toastLoading });
-      }
-
-      if (response.status === 201) {
-        toast.success('Account created successfully', { id: toastLoading });
-        router.push('/login?success=Account has been created');
-      }
-    } catch (error) {
-      setError(error);
-      console.log(error);
-    }
+    //     if (response.status === 201) {
+    //       toast.success('Account created successfully', { id: toastLoading });
+    //       toast.success('Check your email to complete registration', {
+    //         id: toastLoading,
+    //       });
+    //       router.push('/login?success=Account has been created');
+    //     }
+    //   } catch (error) {
+    //     if (error.response && error.response.status === 501) {
+    //       toast.error(error.response.data, { id: toastLoading });
+    //     } else {
+    //       console.error('Error:', error.message);
+    //     }
+    //   }
   };
 
   return (
@@ -220,12 +255,9 @@ const Register = () => {
             <button className="signIn_btn">Sign up</button>
           </form>
 
-          {/* <button 
-        className='google_btn'
-        onClick={notify}
-      > 
-        Login with Google
-      </button> */}
+          <button className="google_btn" onClick={notify}>
+            Login with Google
+          </button>
 
           <Link className="blue_gradient font-extrabold" href="/login">
             Already have an account?{' '}

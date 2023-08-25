@@ -1,6 +1,7 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model, models } from 'mongoose';
 
-const UserSchema = new Schema({
+const UserSchema = new Schema(
+  {
     username: {
       type: String,
       unique: true,
@@ -11,23 +12,19 @@ const UserSchema = new Schema({
       unique: [true, 'Email already exits!'],
       required: [true, 'Email is required!'],
     },
-    password: {
-        type: String,
-        required: true,
-    },
+    password: String,
+    image: String,
     qtnIds: {
-        type: Array,
+      type: Array,
     },
-    image: {
+    Provider: {
       type: String,
+      default: 'Credentials',
     },
-    search: {
-      type: String,
-    }
   },
   { timestamps: true }
-)
+);
 
-const User = models.User || model("User", UserSchema)
+const User = models.User || model('User', UserSchema);
 
 export default User;

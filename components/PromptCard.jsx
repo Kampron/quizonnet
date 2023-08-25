@@ -37,7 +37,7 @@ const PromptCard = ({ post }) => {
       try {
         console.log(session?.user.id);
         const response = await axios.patch(
-          `/api/questions/user/addId/${session?.user.id}`,
+          `/api/questions/user/addId/${session?.user._id}`,
           {
             id: post._id,
           }
@@ -58,7 +58,7 @@ const PromptCard = ({ post }) => {
     } else {
       try {
         const response = await axios.patch(
-          `/api/questions/user/deleteId/${session?.user.id}`,
+          `/api/questions/user/deleteId/${session?.user._id}`,
           {
             id: post._id,
           }
@@ -130,7 +130,7 @@ const PromptCard = ({ post }) => {
               />
             </div>
           )}
-          {pathName === `/dashboard/${session?.user?.id}` && (
+          {pathName === `/dashboard/${session?.user?._id}` && (
             <div title="Delete" className="copy_btn" onClick={handleDelete}>
               <MdOutlineDeleteOutline color="red" size={26} className="" />
             </div>

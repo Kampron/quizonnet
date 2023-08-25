@@ -1,20 +1,18 @@
-'use client'
-
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
-import {  useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import { redirect, useRouter } from 'next/navigation';
 import useIdle from '@/hooks/useIdleTimer';
 
-
 const links = [
   {
     id: 1,
-    title: "Home",
-    url: "/",
+    title: 'Home',
+    url: '/',
   },
   // {
   //   id: 2,
@@ -28,40 +26,35 @@ const links = [
   // },
   {
     id: 4,
-    title: "About",
-    url: "/about",
+    title: 'About',
+    url: '/about',
   },
   {
     id: 5,
-    title: "Contact",
-    url: "/contact",
+    title: 'Contact',
+    url: '/contact',
   },
 ];
 
-
-
 const Nav = () => {
-  const { data: session } = useSession()
-  const router = useRouter()
-  const [toggleDropdown, setToggleDropdown] = useState(false)
+  const { data: session } = useSession();
+  const router = useRouter();
+  const [toggleDropdown, setToggleDropdown] = useState(false);
   const handleSignOut = () => {
     if (window.confirm('Are you sure you want to sign out')) {
       signOut({
-        callbackUrl: `${window.location.origin}`})
-      router.push('/')
-   }  
-  }
+        callbackUrl: `${window.location.origin}`,
+      });
+      router.push('/');
+    }
+  };
 
-  const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 30})
-
-  
-
-  
+  const { isIdle } = useIdle({ onIdle: handleSignOut, idleTimer: 30 });
 
   return (
-    <nav className='flex justify-between  items-center w-full mt-5 mb-16'>
+    <nav className="flex justify-between  items-center w-full mt-5 mb-16">
       <Link href="/" className="flex gap-2 items-center">
-        <Image 
+        <Image
           src="/assets/images/logo.svg"
           alt="logo"
           width={30}
@@ -75,44 +68,47 @@ const Nav = () => {
       <div className="sm:flex hidden">
         <div className="flex items-center gap-3 md:gap-5">
           {links.map((link) => (
-            <Link key={link.id} href={link.url} className='font-poppins font-semibold'>
+            <Link
+              key={link.id}
+              href={link.url}
+              className="font-poppins font-semibold"
+            >
               {link.title}
             </Link>
           ))}
           {session?.user && !isIdle ? (
             <div className="flex gap-3 md:gap-5">
-              <button type="button" onClick={handleSignOut} className="black_btn">
-                <Link href="/">
-                  Sign Out
-                </Link>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="black_btn"
+              >
+                <Link href="/">Sign Out</Link>
               </button>
 
-              <Link href={`/dashboard/${session?.user.id}`}>
+              <Link href={`/dashboard/${session?.user._id}`}>
                 {session?.user.image ? (
-                  <Image 
+                  <Image
                     src={session?.user.image}
                     width={37}
                     height={37}
-                    className='rounded-full'
-                    alt='profile'
+                    className="rounded-full"
+                    alt="profile"
                   />
-                ): (
-                  <Image 
+                ) : (
+                  <Image
                     src="/assets/images/avatar.png"
                     width={37}
                     height={37}
-                    className='rounded-full'
-                    alt='avatar'
+                    className="rounded-full"
+                    alt="avatar"
                   />
                 )}
-              
-            </Link>
+              </Link>
             </div>
           ) : (
             <button className="black_btn">
-              <Link href="/login">
-                Sign In
-              </Link>
+              <Link href="/login">Sign In</Link>
             </button>
           )}
         </div>
@@ -124,78 +120,70 @@ const Nav = () => {
         {session?.user && !isIdle ? (
           <div className="flex">
             {session?.user.image ? (
-              <Image 
+              <Image
                 src={session?.user.image}
                 width={37}
                 height={37}
-                className='rounded-full'
-                alt='profile'
+                className="rounded-full"
+                alt="profile"
                 onClick={() => setToggleDropdown((prev) => !prev)}
               />
-              ) : (
-                <Image 
-                  src="/assets/images/avatar.png"
-                  width={37}
-                  height={37}
-                  className='rounded-full'
-                  alt='profile'
-                  onClick={() => setToggleDropdown((prev) => !prev)}
-                />
-              )}
-              
-              {toggleDropdown && (
-                <div className="dropdown">
+            ) : (
+              <Image
+                src="/assets/images/avatar.png"
+                width={37}
+                height={37}
+                className="rounded-full"
+                alt="profile"
+                onClick={() => setToggleDropdown((prev) => !prev)}
+              />
+            )}
+
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link
+                  href="/about"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/contact"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Contact
+                </Link>
+                <button type="button" className=" w-full outline_btn">
                   <Link
-                    href="/about"
+                    href={`/dashboard/${session.user._id}`}
                     className="dropdown_link"
                     onClick={() => setToggleDropdown(false)}
                   >
-                    About
+                    Dasboard
                   </Link>
-                  <Link
-                    href="/contact"
-                    className="dropdown_link"
-                    onClick={() => setToggleDropdown(false)}
-                  >
-                    Contact
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSignOut}
+                  className=" w-full black_btn"
+                >
+                  <Link href="/" onClick={() => setToggleDropdown(false)}>
+                    Sign Out
                   </Link>
-                  <button
-                    type="button"
-                    className=" w-full outline_btn"
-                  >
-                    <Link
-                      href={`/dashboard/${session.user.id}`}
-                      className="dropdown_link"
-                      onClick={() => setToggleDropdown(false)}
-                    >
-                      Dasboard
-                    </Link>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleSignOut}
-                    className=" w-full black_btn"
-                  >
-                    <Link 
-                      href='/'
-                      onClick={()=> setToggleDropdown(false)}
-                    >
-                      Sign Out
-                    </Link>
-                  </button>
-                </div>
-              )}
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <button className="black_btn">
-            <Link href="/login">
-              Sign In
-            </Link>
+            <Link href="/login">Sign In</Link>
           </button>
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
