@@ -31,13 +31,13 @@ export const POST = async (request) => {
 
   try {
     await newUser.save();
-    // const token = generateToken({ user: data });
+    const token = generateToken({ user: data });
 
-    // await sendEmail({
-    //   to: data.email,
-    //   url: `${BASE_URL}/verify?token=${token}`,
-    //   text: 'VERIFY EMAIL',
-    // });
+    await sendEmail({
+      to: data.email,
+      url: `${BASE_URL}/verify?token=${token}`,
+      text: 'VERIFY EMAIL',
+    });
     return new NextResponse('User has been created', {
       status: 201,
     });
