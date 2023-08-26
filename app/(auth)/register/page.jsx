@@ -100,7 +100,7 @@ const Register = () => {
         }
       })
       .catch((error) => {
-        if (error.response && error.response.status === 501) {
+        if (error.response && error.response.status === 409) {
           toast.error(error.response.data, { id: toastLoading });
         } else {
           console.error('Error:', error.message);

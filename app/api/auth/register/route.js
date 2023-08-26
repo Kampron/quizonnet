@@ -16,10 +16,12 @@ export const POST = async (request) => {
 
   if (isExisting) {
     return new NextResponse('Email registered already', {
-      status: 501,
+      status: 409,
     });
   }
-  const hashedPassword = await bcrypt.hash(data.password, 12);
+  const hashedPassword = isExisting
+    ? null
+    : await bcrypt.hash(data.password, 12);
 
   const newUser = new User({
     username: data.username,
@@ -27,23 +29,30 @@ export const POST = async (request) => {
     password: hashedPassword,
   });
 
-  const token = generateToken({ user: newUser });
-  await sendEmail({
-    to: newUser.email,
-    url: `${BASE_URL}/verify?token=${token}`,
-    text: 'VERIFY EMAIL',
-  });
-
   try {
     await newUser.save();
-    return new NextResponse('User has been created', {
-      status: 201,
+  } catch (err) {
+    return new NextResponse(err.message, {
+      status: 500,
+    });
+  }
+
+  const token = generateToken({ user: newUser });
+  try {
+    await sendEmail({
+      to: newUser.email,
+      url: `${BASE_URL}/verify?token=${token}`,
+      text: 'VERIFY EMAIL',
     });
   } catch (err) {
     return new NextResponse(err.message, {
       status: 500,
     });
   }
+
+  return new NextResponse('User has been created', {
+    status: 201,
+  });
 };
 
 export async function verifyWithCredentials(token) {
@@ -55,6 +64,8 @@ export async function verifyWithCredentials(token) {
     await newUser.save();
     console.log(newUser);
   } catch (error) {
-    redirect(`/errors?error=${error.message}`);
+    return new NextResponse(error.message, {
+      status: 500,
+    });
   }
 }
