@@ -39,9 +39,12 @@ export const POST = async (request) => {
       text: 'VERIFY EMAIL',
     });
 
-    return new NextResponse('User has been created', {
-      status: 201,
-    });
+    return new NextResponse(
+      { message: 'User has been created', user: newUser },
+      {
+        status: 201,
+      }
+    );
   } catch (error) {
     return new NextResponse(error.message, {
       status: 500,
