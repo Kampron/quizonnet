@@ -92,10 +92,10 @@ const Register = () => {
             duration: 3000,
             id: toastLoading,
           });
-          toast('Check your email to complete registration', {
-            icon: '📧',
-            duration: 5000,
-          });
+          // toast('Check your email to complete registration', {
+          //   icon: '📧',
+          //   duration: 5000,
+          // });
           router.push('/login?success=Account has been created');
         }
       })
@@ -106,37 +106,6 @@ const Register = () => {
           console.error('Error:', error.message);
         }
       });
-    //   try {
-    //     const response = await axios.post(
-    //       '/api/auth/register',
-    //       {
-    //         username,
-    //         email,
-    //         password,
-    //       },
-    //       {
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //         },
-    //       }
-    //     );
-
-    //     toastLoading;
-
-    //     if (response.status === 201) {
-    //       toast.success('Account created successfully', { id: toastLoading });
-    //       toast.success('Check your email to complete registration', {
-    //         id: toastLoading,
-    //       });
-    //       router.push('/login?success=Account has been created');
-    //     }
-    //   } catch (error) {
-    //     if (error.response && error.response.status === 501) {
-    //       toast.error(error.response.data, { id: toastLoading });
-    //     } else {
-    //       console.error('Error:', error.message);
-    //     }
-    //   }
   };
 
   return (
