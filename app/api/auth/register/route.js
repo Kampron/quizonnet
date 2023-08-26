@@ -7,44 +7,40 @@ import sendEmail from '@/utils/sendEmail';
 
 const BASE_URL = process.env.NEXTAUTH_URL;
 
-connectToDB();
-
 export const POST = async (request) => {
+  const data = await request.json();
+  const { username, email, password } = await data;
+
+  await connectToDB();
+
+  const isExisting = await User.findOne({ email });
+
+  if (isExisting) {
+    return new NextResponse('Email registered already', {
+      status: 409,
+    });
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 7);
+
+  const newUser = new User({
+    username,
+    email,
+    password: hashedPassword,
+  });
+
   try {
-    const data = await request.json();
-
-    const isExisting = await User.findOne({ email: data.email });
-
-    if (isExisting) {
-      return new NextResponse('Email registered already', {
-        status: 409,
-      });
-    }
-
-    const hashedPassword = await bcrypt.hash(data.password, 12);
-
-    const newUser = new User({
-      username: data.username,
-      email: data.email,
-      password: hashedPassword,
-    });
-
     await newUser.save();
+    // const token = generateToken({ user: data });
 
-    const token = generateToken({ user: newUser });
-
-    await sendEmail({
-      to: newUser.email,
-      url: `${BASE_URL}/verify?token=${token}`,
-      text: 'VERIFY EMAIL',
+    // await sendEmail({
+    //   to: data.email,
+    //   url: `${BASE_URL}/verify?token=${token}`,
+    //   text: 'VERIFY EMAIL',
+    // });
+    return new NextResponse('User has been created', {
+      status: 201,
     });
-
-    return new NextResponse(
-      { message: 'User has been created', user: newUser },
-      {
-        status: 201,
-      }
-    );
   } catch (error) {
     return new NextResponse(error.message, {
       status: 500,
