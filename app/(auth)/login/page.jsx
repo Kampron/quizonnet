@@ -99,7 +99,7 @@ const Login = () => {
           </button>
 
           <Link className="blue_gradient font-extrabold" href="/register">
-            create new account
+            Create new account
           </Link>
         </div>
       </section>
