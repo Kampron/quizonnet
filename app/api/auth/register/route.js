@@ -59,10 +59,12 @@ export async function verifyWithCredentials(token) {
   try {
     const { user } = verifyToken(token);
     const userExist = await User.findOne({ email: user.email });
-    if (userExist) return { msg: 'Verify Success!' };
-    const newUser = new User(user);
-    await newUser.save();
-    console.log(newUser);
+    if (userExist) {
+      return { msg: 'Verify Success!' };
+    } else {
+      const newUser = new User(user);
+      await newUser.save();
+    }
   } catch (error) {
     return new NextResponse(error.message, {
       status: 500,
