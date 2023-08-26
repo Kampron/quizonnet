@@ -7,10 +7,10 @@ import sendEmail from '@/utils/sendEmail';
 import { redirect } from 'next/dist/server/api-utils';
 
 const BASE_URL = process.env.NEXTAUTH_URL;
+
+connectToDB();
 export const POST = async (request) => {
   const data = await request.json();
-
-  await connectToDB();
 
   const isExisting = await User.findOne({ email: data.email });
 
