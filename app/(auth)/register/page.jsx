@@ -59,7 +59,7 @@ const Register = () => {
   }, [username, password]);
 
   const notify = () =>
-    toast.promise(signIn('google'), {
+    toast.promise(signIn('google', { callbackUrl: 'http://localhost:3000' }), {
       loading: 'Loading',
       success: 'Got the data',
       error: 'Error when fetching',
