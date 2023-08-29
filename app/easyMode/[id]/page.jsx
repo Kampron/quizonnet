@@ -132,14 +132,14 @@ const EasyMode = (ctx) => {
   const PrevResult = useSelector((state) => state.result.result[trace]);
   const { queue } = useSelector((state) => state.questions);
 
-  useEffect(() => {
-    console.log(question);
-    console.log(result);
-    console.log(answers);
-  });
+  // useEffect(() => {
+  //   console.log(question);
+  //   console.log(result);
+  //   console.log(answers);
+  // });
 
   useEffect(() => {
-    console.log({ trace, checked });
+    // console.log({ trace, checked });
     setChecked(value);
     if (value) {
       dispatch(updateResultAction({ trace, checked }));
@@ -160,10 +160,10 @@ const EasyMode = (ctx) => {
   const flag = flagResult(totalPoints, earnPoints);
   const length = data?.questions.length;
 
-  console.log(earnPoints);
-  console.log(wrongAnswers);
-  console.log(length);
-  console.log(result.length);
+  // console.log(earnPoints);
+  // console.log(wrongAnswers);
+  // console.log(length);
+  // console.log(result.length);
 
   /** store user result */
   // usePublishResult({username : user?.user.username, result: result, length: length,  attempts: attempts, points: earnPoints, achieved: flag? "passed" : "Failed" })
@@ -192,7 +192,7 @@ const EasyMode = (ctx) => {
   }
 
   function onNext() {
-    console.log('On Next click');
+    // console.log('On Next click');
     if (track < queue.length) {
       dispatch(Action.moveNextAction());
 
@@ -218,7 +218,7 @@ const EasyMode = (ctx) => {
   }
 
   function onPrev() {
-    console.log('On OnPrev click');
+    // console.log('On OnPrev click');
     if (track > 1) {
       dispatch(Action.movePrevAction());
     }
@@ -234,10 +234,10 @@ const EasyMode = (ctx) => {
     setShowFinalScore(true);
   }
 
-  function showReview() {}
+  // function showReview() {}
 
   const [value, setValue] = useState('');
-  console.log(value);
+  // console.log(value);
 
   const [results, setResults] = useState([]);
 
