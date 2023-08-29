@@ -54,16 +54,24 @@ const Dashboard = (ctx) => {
       <h1 className="head_text text-left">
         <span className="blue_gradient">Your Dashboard</span>
       </h1>
-      <p className="desc text-left font-poppins font-semibold">
-        Below are all the questions you added to your dashboard.
-        <br /> Free to add more or delete unwanted questions
-      </p>
-
-      <div className="mt-10 prompt_layout">
-        {userQtns.map((qtn, index) => (
-          <PromptCard key={index} post={qtn} />
-        ))}
-      </div>
+      {userQtns.length === 0 ? (
+        <p className="desc text-left font-poppins font-semibold">
+          You have no questions in your dashboard.
+          <br /> Feel free to add as many questions
+        </p>
+      ) : (
+        <p className="desc text-left font-poppins font-semibold">
+          Below are all the questions you added to your dashboard.
+          <br /> Feel free to add more or delete unwanted questions
+        </p>
+      )}
+      {userQtns.length > 0 && (
+        <div className="mt-10 prompt_layout">
+          {userQtns.map((qtn) => (
+            <PromptCard key={qtn._id} post={qtn} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
