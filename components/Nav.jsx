@@ -161,7 +161,7 @@ const Nav = () => {
                     className="dropdown_link"
                     onClick={() => setToggleDropdown(false)}
                   >
-                    Dasboard
+                    Dashboard
                   </Link>
                 </button>
                 <button
